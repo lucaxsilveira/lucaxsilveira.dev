@@ -1,18 +1,18 @@
 export interface Post {
-    _id: string
+    _id: string;
     title?: string;
     slug?: string;
     mainImage?: {
-      asset: {
-        url: string;
-      };
+        asset: {
+            url: string;
+        };
     };
     publishedAt?: string;
     body?: any;
     author?: {
-      name?: string;
-      photo?: string;
-      bio?: string;
-      slug?: string;
+        name?: string;
+        photo?: string;
+        bio?: string;
+        slug?: string;
     };
 }
