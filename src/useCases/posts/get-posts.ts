@@ -1,22 +1,22 @@
-import type { QueryParams } from "@sanity/client";
+import type { QueryParams } from '@sanity/client';
 
-import { sanityFetch } from "@/services/sanity";
-import { Post } from "@/types/post";
+import { sanityFetch } from '@/services/sanity';
+import { Post } from '@/types/post';
 
 interface GetPostsParams {
-    params?: QueryParams;
+  params?: QueryParams;
 }
 
 const DEFAULT_PARAMS = {} as QueryParams;
 
 const getPosts = ({
-    params = DEFAULT_PARAMS,
+  params = DEFAULT_PARAMS,
 }: GetPostsParams = {}): Promise<Post> => {
-    return sanityFetch<Post>({
-        query: `*[_type == "post"]`,
-        tags: ["post"],
-        ...params,
-    });
+  return sanityFetch<Post>({
+    query: `*[_type == "post"]`,
+    tags: ['post'],
+    ...params,
+  });
 };
 
 export { getPosts };
