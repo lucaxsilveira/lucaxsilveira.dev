@@ -4,17 +4,17 @@ import groq from 'groq';
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
 
-interface GetPostsParams {
+interface GetPostParams {
+  slug: string;
   params?: QueryParams;
 }
 
-const DEFAULT_PARAMS = {} as QueryParams;
-
-const getPosts = ({ params = DEFAULT_PARAMS }: GetPostsParams = {}): Promise<
-  IPost[]
-> => {
-  return sanityFetch<IPost[]>({
-    query: groq`*[_type == "post"]{
+const getPost = async (
+  { slug, params }: GetPostParams = {} as GetPostParams,
+): Promise<IPost> => {
+  try {
+    const [post] = await sanityFetch<IPost[]>({
+      query: groq`*[slug.current == '${slug}']{
       title,
       subtitle,
       slug,
@@ -32,9 +32,13 @@ const getPosts = ({ params = DEFAULT_PARAMS }: GetPostsParams = {}): Promise<
         description
       }
     }`,
-    tags: ['posts'],
-    ...params,
-  });
+      tags: ['post'],
+      ...params,
+    });
+    return post;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
-export { getPosts };
+export { getPost };

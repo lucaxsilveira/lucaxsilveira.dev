@@ -1,18 +1,16 @@
-export interface Post {
+import { IAuthor } from './author';
+import { ICategory } from './category';
+import { IImage } from './image';
+import { ISlug } from './slug';
+
+export interface IPost {
   _id: string;
-  title?: string;
-  slug?: string;
-  mainImage?: {
-    asset: {
-      url: string;
-    };
-  };
+  title: string;
+  subtitle?: string;
+  slug?: ISlug;
+  mainImage?: IImage;
   publishedAt?: string;
   body?: any;
-  author?: {
-    name?: string;
-    photo?: string;
-    bio?: string;
-    slug?: string;
-  };
+  author: IAuthor;
+  categories?: ICategory[];
 }

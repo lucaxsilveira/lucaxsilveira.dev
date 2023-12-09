@@ -1,30 +1,20 @@
 // import 'server-only'
-
 import type { QueryParams } from '@sanity/client';
-import { createClient } from '@sanity/client';
-
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03';
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
-
-const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: true,
-});
+import { client } from '../../sanity/lib/client';
 
 const DEFAULT_PARAMS = {} as QueryParams;
 const DEFAULT_TAGS = [] as string[];
 
 interface SanityFetchParams {
   query: string;
-  params?: QueryParams;
   tags?: string[];
+  params?: QueryParams;
+  next?: NextFetchRequestConfig;
 }
 
 export async function sanityFetch<QueryResponse>({
   query,
+  next,
   params = DEFAULT_PARAMS,
   tags = DEFAULT_TAGS,
 }: SanityFetchParams): Promise<QueryResponse> {
@@ -33,6 +23,7 @@ export async function sanityFetch<QueryResponse>({
     next: {
       //revalidate: 30, // for simple, time-based revalidation
       tags, // for tag-based revalidation
+      ...next,
     },
   });
 }

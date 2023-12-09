@@ -1,0 +1,7 @@
+.post-page .post {
+  padding-bottom: theme('margin.6');
+}
+
+.post-page .post .post__title {
+  margin-bottom: theme('margin.1');
+}
