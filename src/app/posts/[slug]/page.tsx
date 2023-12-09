@@ -1,8 +1,9 @@
 import { IPost } from '@/types/post';
-import { getPost } from '@/useCases/posts/get-post';
-import { getPostPaths } from '@/useCases/posts/get-post-paths';
 import { toPlainText } from '@portabletext/react';
 import type { Metadata } from 'next';
+
+import { getPost } from '@/useCases/posts/get-post';
+import { getPostPaths } from '@/useCases/posts/get-post-paths';
 
 import { isEmpty, truncate } from 'lodash';
 
