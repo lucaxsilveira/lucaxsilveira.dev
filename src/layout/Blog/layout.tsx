@@ -1,22 +1,18 @@
-import type { Metadata } from 'next';
-import { Rubik } from 'next/font/google';
 import Script from 'next/script';
 
-import '@/styles/globals.css';
+import Header from '@/layout/Header';
 import '@/styles/tailwind.css';
 import { IReactChildren } from '@/types/react';
 
-const rubik = Rubik({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'wip: wait for new updates',
-};
-
 export default function RootLayout({ children }: IReactChildren) {
   return (
-    <html lang="en">
-      <body className={rubik.className}>{children}</body>
+    <html lang="en" id="html2">
+      <body>
+        <Header></Header>
+        <div className={`flex w-full justify-center`}>
+          <div className="mt-10 max-w-[680px]">{children}</div>
+        </div>
+      </body>
 
       <Script
         src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"
