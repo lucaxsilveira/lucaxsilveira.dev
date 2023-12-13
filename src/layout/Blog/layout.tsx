@@ -9,9 +9,7 @@ export default function RootLayout({ children }: IReactChildren) {
     <html lang="en" id="html2">
       <body>
         <Header></Header>
-        <div className={`flex w-full justify-center`}>
-          <div className="mt-10 max-w-[680px]">{children}</div>
-        </div>
+        <div className="mt-10">{children}</div>
       </body>
 
       <Script
