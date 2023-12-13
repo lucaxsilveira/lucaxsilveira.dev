@@ -1,13 +1,13 @@
-interface TagProps {
-  children: React.ReactNode;
-}
+import { ComponentProps } from 'react';
+import { VariantProps } from 'tailwind-variants';
+import { variants } from './variants';
 
-const Tag = ({ children }: TagProps) => {
-  return (
-    <div className="uppxercase rounded-3xl bg-gray-200 p-2 px-4 text-sm font-light text-slate-800">
-      {children}
-    </div>
-  );
+type ButtonProps = ComponentProps<'span'> & VariantProps<typeof variants> & {};
+
+const Tag = ({ size, className, children }: ButtonProps) => {
+  const { base } = variants({ size, className });
+
+  return <span className={base()}>{children}</span>;
 };
 
 export default Tag;

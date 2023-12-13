@@ -17,7 +17,7 @@ const MorePosts = async () => {
     filters: [
       {
         field: 'slug.current',
-        value: pathname,
+        value: pathname || '',
         operator: '!=',
       },
     ],
@@ -48,7 +48,7 @@ const MorePosts = async () => {
             <a href={`/posts/${post.slug.current}`} key={post.slug.current}>
               <div className="post-bullet flex w-full flex-col">
                 <figure className="h-[200px] w-full">
-                  <Image.Image
+                  <Image
                     className={'h-[200px] w-full object-cover object-center'}
                     value={post.mainImage}
                     isInline={false}

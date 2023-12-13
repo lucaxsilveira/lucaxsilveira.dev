@@ -1,6 +1,5 @@
 import { IPost } from '@/types/post';
-import { portableTextComponents } from '@/utils/portable-text-components';
-import { PortableText } from '@portabletext/react';
+import Text from '../Text';
 
 interface PostContentProps {
   post: IPost;
@@ -9,14 +8,7 @@ interface PostContentProps {
 const PostContent = ({ post }: PostContentProps) => {
   return (
     <div className="post__content">
-      <PortableText
-        value={post.body}
-        onMissingComponent={(message, options) => {
-          console.log('message', message);
-          console.log('options', options);
-        }}
-        components={portableTextComponents}
-      />
+      <Text value={post.body} />
     </div>
   );
 };

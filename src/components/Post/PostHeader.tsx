@@ -1,5 +1,5 @@
-import Image from '@/components/Image';
 import { IAuthor } from '@/types/author';
+import Image from '../Image';
 
 interface PostHeaderProps {
   author: IAuthor;
@@ -11,7 +11,7 @@ const PostHeader = ({ author, date, readingTime }: PostHeaderProps) => {
   return (
     <div className="post__author flex items-center gap-4">
       <div className="image h-[50px] w-[50px] overflow-hidden rounded-[50%]">
-        <Image.Image value={author.photo} isInline={false} />
+        <Image value={author.image} isInline={false} />
       </div>
       <div className="leading-4">
         <h3 className="mb-1 font-light">{author.name}</h3>

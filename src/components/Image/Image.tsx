@@ -8,7 +8,7 @@ type Value = {
   alt?: string;
 } & SanityImageSource;
 
-type ImageProps = {
+export type ImageProps = {
   value: Value;
   isInline: boolean;
   className?: string;
