@@ -1,17 +1,25 @@
-import { IPost } from '@/types/post';
 import { getPosts } from '@/useCases/posts/get-posts';
 
-interface IPostsProps {
-  posts: IPost[];
-  children?: React.ReactNode;
-}
+const Posts = async () => {
+  const posts = await getPosts({ page: 0, perPage: 1 });
 
-import { IReactChildren } from '@/types/react';
-
-const Posts = async ({ children }: IReactChildren) => {
-  const posts = await getPosts();
-
-  return <pre>{JSON.stringify(posts, null, 2)}</pre>;
+  return (
+    <>
+      <ul className="mb-10 list-disc">
+        {posts.map((post) => (
+          <li key={post.slug.current}>
+            <a
+              href={`/posts/${post.slug.current}`}
+              className=" text-blue-700 underline"
+            >
+              {post.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <pre>{JSON.stringify(posts, null, 2)}</pre>;
+    </>
+  );
 };
 
 export default Posts;

@@ -7,6 +7,7 @@ import { getPostPaths } from '@/useCases/posts/get-post-paths';
 
 import { isEmpty, truncate } from 'lodash';
 
+import MorePosts from '@/components/MorePosts';
 import Post from '@/components/Post';
 import Tag from '@/components/Tag';
 import { urlForImage } from '@/utils/image-builder';
@@ -22,25 +23,28 @@ const PostPage = async ({ params: { slug } }: IParams) => {
   const post: IPost = await getPost({ slug });
 
   return (
-    <div className="post-page">
-      <Post.Root>
-        <Post.Title title={post.title} />
-        <Post.Subtitle subtitle={post.subtitle || ''} />
-        <div className="my-6 flex items-center justify-between border-b border-gray-200 pb-2">
-          <Post.Header
-            body={post.body}
-            publishedAt={post.publishedAt}
-            author={post.author}
-          />
-          <Post.Share />
-        </div>
-        <Post.Content post={post} />
-        <div className="flex gap-2">
-          {post.categories?.map((category) => (
-            <Tag key={category.title}>{category.title}</Tag>
-          ))}
-        </div>
-      </Post.Root>
+    <div className="flex w-full flex-col items-center justify-center">
+      <div className="post-page max-w-[680px] ">
+        <Post.Root>
+          <Post.Title title={post.title} />
+          <Post.Subtitle subtitle={post.subtitle || ''} />
+          <div className="my-6 flex items-center justify-between border-b border-gray-200 pb-2">
+            <Post.Header
+              readingTime={post.readingTime}
+              date={post.date}
+              author={post.author}
+            />
+            <Post.Share />
+          </div>
+          <Post.Content post={post} />
+          <div className="flex gap-2">
+            {post.categories?.map((category) => (
+              <Tag key={category.title}>{category.title}</Tag>
+            ))}
+          </div>
+        </Post.Root>
+      </div>
+      <MorePosts />
     </div>
   );
 };

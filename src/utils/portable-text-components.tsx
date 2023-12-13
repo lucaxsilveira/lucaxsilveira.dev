@@ -1,5 +1,5 @@
 import CodeComponent from '@/components/Code';
-import ImageComponent from '@/components/Image';
+import ImageForBodyText from '@/components/Image/ImageForBodyText';
 import { PortableTextComponents } from '@portabletext/react';
 
 interface ICallToAction {
@@ -27,7 +27,7 @@ export const portableTextComponents: PortableTextComponents = {
     code: ({ children }) => <pre>{children}</pre>,
   },
   types: {
-    image: ImageComponent,
+    image: ImageForBodyText,
     callToAction: ({ value, isInline }: ICallToAction) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>

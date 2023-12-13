@@ -3,6 +3,7 @@ import groq from 'groq';
 
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
+import { formatDateTime, formatReadingTime } from '@/utils/date';
 
 interface GetPostParams {
   slug: string;
@@ -35,8 +36,12 @@ const getPost = async (
       tags: ['post'],
       ...params,
     });
+
+    post.readingTime = formatReadingTime(post.body);
+    post.date = formatDateTime(post.publishedAt) || '';
+
     return post;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 };
