@@ -19,6 +19,8 @@ interface IParams {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 const PostPage = async ({ params: { slug } }: IParams) => {
   const post: IPost = await getPost({ slug });
 
