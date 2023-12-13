@@ -17,7 +17,7 @@ type ImageProps = {
 const ImageForBodyText = ({ value, isInline, className }: ImageProps) => {
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <Image.Image value={value} isInline={isInline} className={className} />
+      <Image value={value} isInline={isInline} className={className} />
       <Image.Legend legend={value.legend} />
     </div>
   );

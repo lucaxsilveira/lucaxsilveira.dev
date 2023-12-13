@@ -36,7 +36,9 @@ const PostPage = async ({ params: { slug } }: IParams) => {
             />
             <Post.Share />
           </div>
-          <Post.Content post={post} />
+          <div className="font-serif">
+            <Post.Content post={post} />
+          </div>
           <div className="flex gap-2">
             {post.categories?.map((category) => (
               <Tag key={category.title}>{category.title}</Tag>
@@ -64,7 +66,7 @@ export async function generateMetadata({ params }: IParams): Promise<Metadata> {
     images = [imageUrl];
   }
 
-  const bodyText = toPlainText(body);
+  const bodyText = body ? toPlainText(body) : '';
   let description = bodyText.replaceAll('\n', ' ');
   description = truncate(description, {
     length: 150,

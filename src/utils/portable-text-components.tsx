@@ -13,9 +13,7 @@ interface ICallToAction {
 export const portableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className="line mb-6 font-serif text-lg leading-8 text-slate-800">
-        {children}
-      </p>
+      <p className="line mb-6 text-lg leading-8 text-slate-800">{children}</p>
     ),
     h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
     blockquote: ({ children }) => (
@@ -69,9 +67,7 @@ export const portableTextComponents: PortableTextComponents = {
   listItem: {
     bullet: ({ children }) => (
       <li style={{ listStyleType: 'disc' }}>
-        <p className="line font-serif text-lg leading-8 text-slate-800">
-          {children}
-        </p>
+        <p className="line text-lg leading-8 text-slate-800">{children}</p>
       </li>
     ),
     checkmarks: ({ children }) => <li>✅ {children}</li>,

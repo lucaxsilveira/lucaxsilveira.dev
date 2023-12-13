@@ -1,32 +1,20 @@
-import type { QueryParams } from '@sanity/client';
 import groq from 'groq';
 
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
 import { formatDateTime, formatReadingTime } from '@/utils/date';
-import { buildFilterString } from '@/utils/string';
+import { IParams, buildQueryParams } from '@/utils/sanity';
+import { toPlainText } from '@portabletext/react';
+import { truncate } from 'lodash';
 
-const DEFAULT_PARAMS = {} as QueryParams;
+const DEFAULT_PARAMS = {} as IParams;
 
 const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
   try {
-    let {
-      page = 0,
-      perPage = 10,
-      orderBy = 'publishedAt desc',
-      filters = [],
-    } = params;
-    page = page > 0 ? page * perPage : 0;
-    perPage = page > 0 ? perPage + 1 : perPage;
-
-    let filterString = '';
-    if (Array.isArray(filters) && filters.length > 0) {
-      filterString = buildFilterString(filters);
-      if (filterString) filterString = `&& ${filterString}`;
-    }
+    let { page, perPage, orderBy, filters } = buildQueryParams(params);
 
     const posts = await sanityFetch<IPost[]>({
-      query: groq`*[_type == "post" ${filterString}]  | order(${orderBy}) [${page}...${perPage}]{
+      query: groq`*[_type == "post" ${filters}]  | order(${orderBy}) [${page}...${perPage}]{
       title,
       subtitle,
       slug,
@@ -37,7 +25,7 @@ const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
         name,
         bio,
         slug,
-        "photo": image,
+        image,
       },
       categories[]->{
         title,
@@ -47,11 +35,24 @@ const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
       tags: ['posts'],
       ...params,
     });
-    return posts.map((post) => ({
-      ...post,
-      date: formatDateTime(post.publishedAt) || '',
-      readingTime: formatReadingTime(post.body),
-    }));
+    return posts.map((post) => {
+      const date = formatDateTime(post.publishedAt) || '';
+      const readingTime = formatReadingTime(post.body);
+
+      const bodyText = toPlainText(post.body);
+      let description = bodyText.replaceAll('\n', ' ');
+      description = truncate(description, {
+        length: 100,
+        separator: /,? +/,
+      });
+
+      return {
+        ...post,
+        date,
+        readingTime,
+        description,
+      };
+    });
   } catch (error: any) {
     throw new Error(error);
   }

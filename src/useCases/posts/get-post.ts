@@ -26,7 +26,7 @@ const getPost = async (
         name,
         bio,
         slug,
-        "photo": image,
+        image,
       },
       categories[]->{
         title,

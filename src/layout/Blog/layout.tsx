@@ -1,8 +1,10 @@
 import Script from 'next/script';
 
 import Header from '@/layout/Header';
-import '@/styles/tailwind.css';
 import { IReactChildren } from '@/types/react';
+import Analytics from '../Analytics';
+
+import '@/styles/tailwind.css';
 
 export default function RootLayout({ children }: IReactChildren) {
   return (
@@ -16,6 +18,8 @@ export default function RootLayout({ children }: IReactChildren) {
         src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"
         type="text/javascript"
       />
+
+      <Analytics />
     </html>
   );
 }

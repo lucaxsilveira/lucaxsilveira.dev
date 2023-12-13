@@ -35,6 +35,21 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'cover',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+      ],
+    }),
+    defineField({
       name: 'bio',
       title: 'Bio',
       type: 'array',

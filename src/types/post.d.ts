@@ -1,3 +1,4 @@
+import { PortableTextBlock } from 'sanity';
 import { IAuthor } from './author';
 import { ICategory } from './category';
 import { IImage } from './image';
@@ -10,8 +11,9 @@ export interface IPost {
   slug: ISlug;
   mainImage: IImage;
   publishedAt?: string;
+  description?: string;
   date?: string;
-  body?: any;
+  body: PortableTextBlock[];
   author: IAuthor;
   categories?: ICategory[];
   readingTime: string;
