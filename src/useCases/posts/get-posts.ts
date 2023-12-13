@@ -4,17 +4,29 @@ import groq from 'groq';
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
 import { formatDateTime, formatReadingTime } from '@/utils/date';
+import { buildFilterString } from '@/utils/string';
 
 const DEFAULT_PARAMS = {} as QueryParams;
 
 const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
   try {
-    let { page = 0, perPage = 10, orderBy = 'publishedAt desc' } = params;
+    let {
+      page = 0,
+      perPage = 10,
+      orderBy = 'publishedAt desc',
+      filters = [],
+    } = params;
     page = page > 0 ? page * perPage : 0;
     perPage = page > 0 ? perPage + 1 : perPage;
 
+    let filterString = '';
+    if (Array.isArray(filters) && filters.length > 0) {
+      filterString = buildFilterString(filters);
+      if (filterString) filterString = `&& ${filterString}`;
+    }
+
     const posts = await sanityFetch<IPost[]>({
-      query: groq`*[_type == "post"]  | order(${orderBy}) [${page}...${perPage}]{
+      query: groq`*[_type == "post" ${filterString}]  | order(${orderBy}) [${page}...${perPage}]{
       title,
       subtitle,
       slug,
