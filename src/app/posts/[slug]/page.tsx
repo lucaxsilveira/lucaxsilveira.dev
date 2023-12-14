@@ -26,7 +26,7 @@ const PostPage = async ({ params: { slug } }: IParams) => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="post-page max-w-[680px] ">
+      <div className="post-page w-full p-4 md:max-w-[680px] md:p-0">
         <Post.Root>
           <Post.Title title={post.title} />
           <Post.Subtitle subtitle={post.subtitle || ''} />

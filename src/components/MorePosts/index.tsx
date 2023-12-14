@@ -41,9 +41,9 @@ const MorePosts = async () => {
 
   return (
     <div className="more-posts flex w-full flex-col items-center justify-center bg-gray-100">
-      <div className="min-w-[680px] max-w-[680px] py-8">
+      <div className="max-w-[680px] p-4 py-8 md:min-w-[680px] md:p-0">
         <p className="mb-4 text-sm ">Você também pode gostar de:</p>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid gap-8 md:grid-cols-2">
           {posts.map((post) => (
             <a href={`/posts/${post.slug.current}`} key={post.slug.current}>
               <div className="post-bullet flex w-full flex-col">

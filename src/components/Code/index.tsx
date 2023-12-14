@@ -23,7 +23,7 @@ interface ICode {
 
 const Code = ({ value }: ICode) => {
   return (
-    <div className="code-wrapper relative mb-6 overflow-hidden rounded-lg">
+    <div className="code-wrapper relative mb-6 overflow-hidden rounded-lg text-xs md:text-lg">
       <Suspense fallback={<p>loading...</p>}>
         <CopyButton code={value.code} />
       </Suspense>
