@@ -9,8 +9,8 @@ const Posts = async () => {
   const author = await getAuthor({ slug: 'lucas' });
 
   return (
-    <div className="flex w-full justify-center gap-12">
-      <div className="post-list min-w-[728px] max-w-[728px] divide-y divide-gray-200">
+    <div className="flex w-full flex-col-reverse justify-center gap-12 lg:flex-row ">
+      <div className="post-list divide-y divide-gray-200 p-4 lg:min-w-[728px] lg:max-w-[728px] lg:p-0">
         {posts.map((post) => (
           <a
             href={`/posts/${post.slug.current}`}
@@ -26,10 +26,12 @@ const Posts = async () => {
               </span>
               <div className="mt-2 flex flex-row gap-16">
                 <div>
-                  <p className="text-lg font-bold leading-5">{post.title}</p>
+                  <p className="line-clamp-2 text-lg font-bold leading-5 lg:line-clamp-none">
+                    {post.title}
+                  </p>
                   <p className="mt-2 text-sm font-light">{post.description}</p>
                 </div>
-                <div className="max-w-[120px]">
+                <div className="max-w-[120px] sm:ml-auto">
                   <Image value={post.mainImage} isInline={false} />
                 </div>
               </div>
@@ -45,21 +47,21 @@ const Posts = async () => {
         ))}
       </div>
 
-      <div className="author min-w-[368px] max-w-[368px]">
+      <div className="author w-full lg:min-w-[368px] lg:max-w-[368px]">
         <div className="relative">
-          <div className="overflow-hidden rounded-lg">
+          <div className="max-h-[170px] overflow-hidden lg:rounded-lg">
             <Image value={author.cover} isInline={false} />
           </div>
-          <div className="absolute left-4 top-8 flex items-center ">
-            <div className="image border-color-white  h-[80px] w-[80px] overflow-hidden rounded-[50%] border-2">
+          <div className="relative ml-4 mt-4 flex items-center lg:absolute lg:left-4 lg:top-8 lg:ml-0 lg:mt-0">
+            <div className="image border-color-white h-[70px] w-[70px] overflow-hidden rounded-[50%] border-2 lg:h-[80px] lg:w-[80px]">
               <Image value={author.image} isInline={false} />
             </div>
-            <p className="text-md ml-2 text-white">Lucas da Silveira</p>
+            <p className="text-md ml-2 lg:text-white">Lucas da Silveira</p>
           </div>
         </div>
 
-        <div className="mt-8">
-          <div className="mt-2 font-sans text-sm text-gray-500">
+        <div className="mt-4 lg:mt-8">
+          <div className="mt-2 px-4 font-sans text-sm text-gray-500 lg:p-0">
             <Text value={author.bio} useComponents={false} />
           </div>
         </div>

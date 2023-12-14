@@ -4,7 +4,7 @@ interface PostSubtitleProps {
 
 const PostSubtitle = ({ subtitle }: PostSubtitleProps) => {
   return (
-    <h2 className="post__subtitle text-xl font-light text-gray-600">
+    <h2 className="post__subtitle text-lg font-light text-gray-600 sm:text-xl">
       {subtitle}
     </h2>
   );
