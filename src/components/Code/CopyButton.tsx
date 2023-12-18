@@ -1,6 +1,6 @@
 'use client';
 
-import useClipboard from '@/app/hooks/useClipboard';
+import useClipboard from '@/hooks/useClipboard';
 import { ClipboardCopy } from 'lucide-react';
 import { useCallback } from 'react';
 

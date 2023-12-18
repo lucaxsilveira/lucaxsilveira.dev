@@ -9,7 +9,7 @@ export interface IFilters {
 export interface IParams {
   page?: number;
   perPage?: number;
-  orderBy?: number;
+  orderBy?: string;
   filters?: IFilters[];
 }
 
