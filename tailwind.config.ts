@@ -22,6 +22,7 @@ const config: Config = {
         secondary: colors.violet[600],
         'primary-colors': colors.blue,
         'secondary-colors': colors.violet,
+        backgroud: '#0e0c12',
       },
     },
   },

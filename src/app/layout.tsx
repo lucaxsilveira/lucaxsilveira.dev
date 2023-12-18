@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Analytics from '@/layout/Analytics';
 import { IReactChildren } from '@/types/react';
 
+import Header from '@/layout/Header';
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 
@@ -18,7 +19,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: IReactChildren) {
   return (
     <html lang="en">
-      <body className={rubik.className}>{children}</body>
+      <body
+        className={`${rubik.className} bg-backgroud leading-relaxed antialiased`}
+      >
+        <Header />
+        {children}
+      </body>
+
+      <div id="search-wrapper" className="" />
       <Script
         src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"
         type="text/javascript"
