@@ -3,16 +3,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import LottieIcon, { Icon } from '@/components/Lottie';
+import { Icon } from '@/components/Lottie';
 import { normalizeString } from '@/utils/string';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Menu from './Menu';
 
-interface IMenuItem {
+export interface IMenuItem {
   name: string;
   action: () => void;
   icon: Icon;
-  active: Boolean;
+  shortcut?: string;
 }
 
 const dropIn = {
@@ -42,54 +43,6 @@ const SearchBar = () => {
   const [search, setSearch] = useState('');
   const router = useRouter();
 
-  const defaultMenuItems: IMenuItem[] = [
-    {
-      name: 'Copiar link',
-      action: () => {
-        navigator.clipboard.writeText(window.location.href);
-      },
-      icon: 'open',
-      active: false,
-    },
-    {
-      name: 'Ver código fonte',
-      action: () => {
-        window.open('https://github.com/lucaxsilveira/lucaxsilveira.dev');
-      },
-      icon: 'repository',
-      active: false,
-    },
-    {
-      name: 'Página inicial',
-      action: () => {
-        router.push('/');
-        setOpen(false);
-      },
-      icon: 'home',
-      active: false,
-    },
-    {
-      name: 'Fale comigo',
-      action: () => {
-        router.push('/contact');
-        setOpen(false);
-      },
-      icon: 'email',
-      active: false,
-    },
-    {
-      name: 'Ver posts do blog',
-      action: () => {
-        router.push('/posts');
-        setOpen(false);
-      },
-      icon: 'folder',
-      active: false,
-    },
-  ];
-
-  const [menuItems, setMenuItems] = useState<IMenuItem[]>(defaultMenuItems);
-
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       switch (event.key) {
@@ -118,6 +71,77 @@ const SearchBar = () => {
     }
   }, [open]);
 
+  const commonActions = useCallback(() => {
+    setOpen(false);
+    setSearch('');
+  }, []);
+
+  const menuItems: IMenuItem[] = useMemo(
+    () => [
+      {
+        name: 'Copiar link',
+        action: () => {
+          navigator.clipboard.writeText(window.location.href);
+          commonActions();
+        },
+        icon: 'open',
+        shortcut: 'L',
+      },
+      {
+        name: 'Ver código fonte',
+        action: () => {
+          window.open('https://github.com/lucaxsilveira/lucaxsilveira.dev');
+          commonActions();
+        },
+        icon: 'repository',
+        shortcut: 'C',
+      },
+      {
+        name: 'Página inicial',
+        action: () => {
+          router.push('/');
+          commonActions();
+        },
+        icon: 'home',
+        shortcut: 'I',
+      },
+      {
+        name: 'Fale comigo',
+        action: () => {
+          router.push('/contact');
+          commonActions();
+        },
+        icon: 'email',
+        shortcut: 'FC',
+      },
+      {
+        name: 'Ver posts do blog',
+        action: () => {
+          router.push('/posts');
+          commonActions();
+        },
+        icon: 'folder',
+        shortcut: 'B',
+      },
+    ],
+    [router, commonActions],
+  );
+
+  const items = useMemo<IMenuItem[]>(() => {
+    if (!search) return menuItems;
+
+    return menuItems.filter(({ name, shortcut }) => {
+      const matchByName = normalizeString(name).includes(
+        normalizeString(search),
+      );
+
+      const matchByCommand =
+        shortcut && normalizeString(shortcut) == normalizeString(search);
+
+      return matchByCommand || matchByName;
+    });
+  }, [menuItems, search]);
+
   const handleSearchChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearch(event.target.value);
@@ -125,25 +149,16 @@ const SearchBar = () => {
     [],
   );
 
-  const items = useMemo<IMenuItem[]>(() => {
-    if (!search) return menuItems;
+  const handleKeyPress = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key !== 'Enter') return;
 
-    return menuItems.filter(({ name }) =>
-      normalizeString(name).includes(normalizeString(search)),
-    );
-  }, [menuItems, search]);
-
-  const onHoverMenu = useCallback(
-    (name: string) => {
-      const normalizedItems = menuItems.map((item) => {
-        return {
-          ...item,
-          active: item.name === name,
-        };
-      });
-      setMenuItems(normalizedItems);
+      const [item] = items;
+      if (item) {
+        item.action();
+      }
     },
-    [menuItems],
+    [items],
   );
 
   if (!open) return;
@@ -169,8 +184,9 @@ const SearchBar = () => {
             autoFocus
             type="text"
             className="h-[40px] w-full bg-transparent pl-4 text-gray-200 outline-none "
-            placeholder="Buscar por um comando..."
+            placeholder="Digite um comando ou busque pelo nome..."
             onChange={handleSearchChange}
+            onKeyDown={handleKeyPress}
           />
         </div>
 
@@ -185,30 +201,11 @@ const SearchBar = () => {
               </p>
             </div>
           )}
-          <ul className="divide divide-y divide-gray-700/80">
-            {items.map(({ name, action, icon, active }) => (
-              <li
-                key={name}
-                className="flex cursor-pointer items-center justify-between px-4 py-2"
-                onMouseEnter={() => onHoverMenu(name)}
-                onClick={typeof action === 'function' ? action : undefined}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="m-w-[40px]">
-                    <LottieIcon
-                      animate={active}
-                      icon={icon}
-                      width={28}
-                      height={28}
-                    />
-                  </div>
-                  <span className="text-xs font-light uppercase tracking-wider">
-                    {name}
-                  </span>
-                </div>
-              </li>
+          <Menu>
+            {items.map((item) => (
+              <Menu.Item key={item.name} item={item} />
             ))}
-          </ul>
+          </Menu>
         </div>
       </motion.div>
     </motion.div>,

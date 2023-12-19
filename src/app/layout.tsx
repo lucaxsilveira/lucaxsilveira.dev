@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Analytics from '@/layout/Analytics';
 import { IReactChildren } from '@/types/react';
 
+import FlashlightBackground from '@/components/FlashlightBackground';
 import Header from '@/layout/Header';
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: IReactChildren) {
         className={`${rubik.className} bg-backgroud leading-relaxed antialiased`}
       >
         <Header />
-        {children}
+        <FlashlightBackground>{children}</FlashlightBackground>
       </body>
 
       <div id="search-wrapper" className="" />

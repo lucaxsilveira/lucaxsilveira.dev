@@ -33,6 +33,7 @@
     "react-lottie": "^1.2.3",
     "react-refractor": "^2.1.7",
     "refractor": "^4.8.1",
+    "resend": "^2.0.0",
     "sanity": "3",
     "styled-components": "6",
     "tailwind-variants": "^0.1.18"

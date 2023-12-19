@@ -2,6 +2,7 @@ import Lottie, { Options } from 'react-lottie';
 
 import email from '@/lotties/email.json';
 import folder from '@/lotties/folder.json';
+import heart from '@/lotties/heart.json';
 import home from '@/lotties/home.json';
 import open from '@/lotties/open.json';
 import repository from '@/lotties/repository.json';
@@ -12,6 +13,7 @@ const icons = {
   folder,
   repository,
   home,
+  heart,
 };
 
 export type Icon = keyof typeof icons;
@@ -21,27 +23,30 @@ interface ILottieIcon {
   options?: Options;
   width?: string | number;
   height?: string | number;
-  animate: Boolean;
+  autoplay?: boolean;
+  animate: boolean;
 }
 
-const LottieIcon = ({
+const LottieIcon: React.FC<ILottieIcon> = ({
   icon,
   options,
-  width = '44px',
-  height = '44px',
+  width = '28px',
+  height = '28px',
   animate = false,
+  autoplay = false,
   ...rest
-}: ILottieIcon) => {
+}) => {
   return (
     <div className="lottie">
       <Lottie
         isPaused={!animate}
         options={{
           loop: true,
-          autoplay: false,
+          autoplay,
           animationData: icons[icon],
           ...options,
         }}
+        speed={1.5}
         height={width}
         width={height}
         {...rest}
