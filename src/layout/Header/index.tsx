@@ -1,4 +1,5 @@
 'use client';
+import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
@@ -80,6 +81,7 @@ const Header = () => {
             className="cursor-pointer text-lg font-light"
           >
             {isMac ? '⌘+K' : 'CTRL + K'}
+            <SearchBar />
           </span>
         </div>
       </div>

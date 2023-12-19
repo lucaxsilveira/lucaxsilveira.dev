@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 
 import LottieIcon, { Icon } from '@/components/Lottie';
 import { normalizeString } from '@/utils/string';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 interface IMenuItem {
@@ -13,6 +14,28 @@ interface IMenuItem {
   icon: Icon;
   active: Boolean;
 }
+
+const dropIn = {
+  hidden: {
+    y: '-100vh',
+    opacity: 0,
+  },
+  visible: {
+    y: '0',
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+      delay: 0.1,
+    },
+  },
+  exit: {
+    y: '100vh',
+    opacity: 0,
+  },
+};
 
 const SearchBar = () => {
   const [open, setOpen] = useState(false);
@@ -37,9 +60,19 @@ const SearchBar = () => {
       active: false,
     },
     {
+      name: 'Página inicial',
+      action: () => {
+        router.push('/');
+        setOpen(false);
+      },
+      icon: 'home',
+      active: false,
+    },
+    {
       name: 'Fale comigo',
       action: () => {
         router.push('/contact');
+        setOpen(false);
       },
       icon: 'email',
       active: false,
@@ -48,6 +81,7 @@ const SearchBar = () => {
       name: 'Ver posts do blog',
       action: () => {
         router.push('/posts');
+        setOpen(false);
       },
       icon: 'folder',
       active: false,
@@ -74,12 +108,6 @@ const SearchBar = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setOpen(true);
-    }, 500);
   }, []);
 
   useEffect(() => {
@@ -121,16 +149,24 @@ const SearchBar = () => {
   if (!open) return;
 
   return createPortal(
-    <div
+    <motion.div
       className="absolute top-0 flex h-full w-full items-center justify-center bg-slate-900/90"
       onClick={() => setOpen(false)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      <div
+      <motion.div
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
         className="w-[600px] overflow-hidden rounded-md border border-slate-900/30 bg-slate-900/30 backdrop-blur-lg backdrop-brightness-150"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex">
           <input
+            autoFocus
             type="text"
             className="h-[40px] w-full bg-transparent pl-4 text-gray-200 outline-none "
             placeholder="Buscar por um comando..."
@@ -149,7 +185,7 @@ const SearchBar = () => {
               </p>
             </div>
           )}
-          <ul className="divide divide-y divide-gray-600">
+          <ul className="divide divide-y divide-gray-700/80">
             {items.map(({ name, action, icon, active }) => (
               <li
                 key={name}
@@ -174,8 +210,8 @@ const SearchBar = () => {
             ))}
           </ul>
         </div>
-      </div>
-    </div>,
+      </motion.div>
+    </motion.div>,
     document.getElementById('search-wrapper') as HTMLElement,
   );
 };
