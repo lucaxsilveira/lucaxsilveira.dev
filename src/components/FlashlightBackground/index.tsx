@@ -5,7 +5,9 @@ interface FlashlightBackgroundProps {
   children: React.ReactNode;
 }
 
-const FlashlightBackground = ({ children }: FlashlightBackgroundProps) => {
+const FlashlightBackground: React.FC<FlashlightBackgroundProps> = ({
+  children,
+}) => {
   const [ref, mousePosition] = useMousePosition();
 
   return (
@@ -17,11 +19,10 @@ const FlashlightBackground = ({ children }: FlashlightBackgroundProps) => {
         }}
       ></div>
 
-      <main
-        className="xpy-12 xlg:py-8 xmd:py-20 mx-auto min-h-screen max-w-screen-lg px-6 pb-12 font-sans md:px-12 lg:px-24"
-        ref={ref}
-      >
-        {children}
+      <main ref={ref}>
+        <div className="start- mx-auto min-h-screen max-w-screen-lg px-6 pb-12 font-sans md:px-12 lg:px-24">
+          {children}
+        </div>
       </main>
     </div>
   );

@@ -1,7 +1,8 @@
 'use client';
-import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+
+import SearchBar from '@/components/SearchBar';
 
 interface IMenuItem {
   name: string;
@@ -12,40 +13,37 @@ interface IMenuItem {
 const Header = () => {
   const [left, setLeft] = useState(0);
 
-  const handleItemHover = (index: number) => {
+  const handleItemHover = useCallback((index: number) => {
     setLeft(index * 100);
-  };
+  }, []);
 
   const menuItems: IMenuItem[] = useMemo(() => {
     return [
       {
         name: 'sobre',
         href: '/',
-        active: window.location.pathname === '/',
       },
       {
         name: 'contato',
         href: '/contact',
-        active: window.location.pathname === '/contact',
       },
       {
         name: 'blog',
         href: '/posts',
-        active: window.location.pathname === '/posts',
       },
     ];
   }, []);
 
-  const openSearchBar = () => {
+  const openSearchBar = useCallback(() => {
     const simulatedEvent = new KeyboardEvent('keydown', {
       key: 'k',
       metaKey: true,
     });
     window.dispatchEvent(simulatedEvent);
-  };
+  }, []);
 
   const isMac = useMemo(() => {
-    return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    return window.navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   }, []);
 
   return (
@@ -58,7 +56,6 @@ const Header = () => {
               <li
                 key={item.name}
                 onMouseEnter={() => handleItemHover(index)}
-                data-active={item.active}
                 className="relative z-10 inline-block w-[100px] cursor-pointer py-2 text-center"
               >
                 <Link
