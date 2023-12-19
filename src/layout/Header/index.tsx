@@ -23,6 +23,11 @@ const Header = () => {
         active: window.location.pathname === '/',
       },
       {
+        name: 'contato',
+        href: '/contact',
+        active: window.location.pathname === '/contact',
+      },
+      {
         name: 'blog',
         href: '/posts',
         active: window.location.pathname === '/posts',
@@ -30,9 +35,21 @@ const Header = () => {
     ];
   }, []);
 
+  const openSearchBar = () => {
+    const simulatedEvent = new KeyboardEvent('keydown', {
+      key: 'k',
+      metaKey: true,
+    });
+    window.dispatchEvent(simulatedEvent);
+  };
+
+  const isMac = useMemo(() => {
+    return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  }, []);
+
   return (
-    <header className="navbar absolute left-0 flex w-full items-center justify-center py-2">
-      <div className="flex w-full max-w-screen-xl justify-between px-4  py-2 text-white md:p-0">
+    <header className="navbar absolute left-0 z-10 flex w-full items-center justify-center py-2">
+      <div className="flex w-full max-w-screen-xl items-center justify-between px-4 py-2 text-white md:p-0">
         <div>header</div>
         <nav className="group relative">
           <ul className="contents gap-2">
@@ -41,7 +58,7 @@ const Header = () => {
                 key={item.name}
                 onMouseEnter={() => handleItemHover(index)}
                 data-active={item.active}
-                className="data-[active=true]:after:content-[' '] relative z-10 inline-block w-[100px] py-2 text-center data-[active=true]:after:absolute data-[active=true]:after:bottom-2 data-[active=true]:after:left-2 data-[active=true]:after:h-[2px] data-[active=true]:after:w-[30%] data-[active=true]:after:bg-sky-300"
+                className="relative z-10 inline-block w-[100px] cursor-pointer py-2 text-center"
               >
                 <Link
                   href={item.href}
@@ -57,7 +74,14 @@ const Header = () => {
             ></li>
           </ul>
         </nav>
-        <div>back</div>
+        <div>
+          <span
+            onClick={openSearchBar}
+            className="cursor-pointer text-lg font-light"
+          >
+            {isMac ? '⌘+K' : 'CTRL + K'}
+          </span>
+        </div>
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
+import fontSize from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -10,6 +11,12 @@ const config: Config = {
     './src/utils/portable-text-components.tsx',
   ],
   theme: {
+    fontSize: {
+      ...fontSize.fontSize,
+      '2xs': '.625rem',
+      '3xs': '.5rem',
+      '4xs': '.375rem',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

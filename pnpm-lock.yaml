@@ -32,6 +32,9 @@ dependencies:
   '@supabase/supabase-js':
     specifier: ^2.39.0
     version: registry.npmjs.org/@supabase/supabase-js@2.39.0
+  '@types/react-lottie':
+    specifier: ^1.2.10
+    version: registry.npmjs.org/@types/react-lottie@1.2.10
   date-fns:
     specifier: ^2.30.0
     version: registry.npmjs.org/date-fns@2.30.0
@@ -62,6 +65,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: registry.npmjs.org/react-dom@18.2.0(react@18.2.0)
+  react-lottie:
+    specifier: ^1.2.3
+    version: registry.npmjs.org/react-lottie@1.2.3(react@18.2.0)
   react-refractor:
     specifier: ^2.1.7
     version: registry.npmjs.org/react-refractor@2.1.7(react@18.2.0)
@@ -2659,6 +2665,14 @@ packages:
       '@types/react': registry.npmjs.org/@types/react@18.2.37
     dev: false
 
+  registry.npmjs.org/@types/react-lottie@1.2.10:
+    resolution: {integrity: sha512-rCd1p3US4ELKJlqwVnP0h5b24zt5p9OCvKUoNpYExLqwbFZMWEiJ6EGLMmH7nmq5V7KomBIbWO2X/XRFsL0vCA==, tarball: https://registry.npmjs.org/@types/react-lottie/-/react-lottie-1.2.10.tgz}
+    name: '@types/react-lottie'
+    version: 1.2.10
+    dependencies:
+      '@types/react': registry.npmjs.org/@types/react@18.2.37
+    dev: false
+
   registry.npmjs.org/@types/react@18.2.37:
     resolution: {integrity: sha512-RGAYMi2bhRgEXT3f4B92WTohopH6bIXw05FuGlmJEnv/omEn190+QYEIYxIAuIBdKgboYYdVved2p1AxZVQnaw==, tarball: https://registry.npmjs.org/@types/react/-/react-18.2.37.tgz}
     name: '@types/react'
@@ -3237,6 +3251,15 @@ packages:
       resolve: registry.npmjs.org/resolve@1.22.8
     dev: false
 
+  registry.npmjs.org/babel-runtime@6.26.0:
+    resolution: {integrity: sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==, tarball: https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz}
+    name: babel-runtime
+    version: 6.26.0
+    dependencies:
+      core-js: registry.npmjs.org/core-js@2.6.12
+      regenerator-runtime: registry.npmjs.org/regenerator-runtime@0.11.1
+    dev: false
+
   registry.npmjs.org/balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==, tarball: https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz}
     name: balanced-match
@@ -3663,6 +3686,14 @@ packages:
     version: 3.3.3
     dependencies:
       toggle-selection: registry.npmjs.org/toggle-selection@1.0.6
+    dev: false
+
+  registry.npmjs.org/core-js@2.6.12:
+    resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==, tarball: https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz}
+    name: core-js
+    version: 2.6.12
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+    requiresBuild: true
     dev: false
 
   registry.npmjs.org/core-util-is@1.0.3:
@@ -6322,6 +6353,12 @@ packages:
     dependencies:
       js-tokens: registry.npmjs.org/js-tokens@4.0.0
 
+  registry.npmjs.org/lottie-web@5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==, tarball: https://registry.npmjs.org/lottie-web/-/lottie-web-5.12.2.tgz}
+    name: lottie-web
+    version: 5.12.2
+    dev: false
+
   registry.npmjs.org/lru-cache@10.0.1:
     resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==, tarball: https://registry.npmjs.org/lru-cache/-/lru-cache-10.0.1.tgz}
     name: lru-cache
@@ -7488,6 +7525,20 @@ packages:
     version: 3.0.4
     dev: false
 
+  registry.npmjs.org/react-lottie@1.2.3(react@18.2.0):
+    resolution: {integrity: sha512-qLCERxUr8M+4mm1LU0Ruxw5Y5Fn/OmYkGfnA+JDM/dZb3oKwVAJCjwnjkj9TMHtzR2U6sMEUD3ZZ1RaHagM7kA==, tarball: https://registry.npmjs.org/react-lottie/-/react-lottie-1.2.3.tgz}
+    id: registry.npmjs.org/react-lottie/1.2.3
+    name: react-lottie
+    version: 1.2.3
+    engines: {npm: ^3.0.0}
+    peerDependencies:
+      react: ^0.14.7 || ^15.0.0 || ^16.0.0
+    dependencies:
+      babel-runtime: registry.npmjs.org/babel-runtime@6.26.0
+      lottie-web: registry.npmjs.org/lottie-web@5.12.2
+      react: registry.npmjs.org/react@18.2.0
+    dev: false
+
   registry.npmjs.org/react-refractor@2.1.7(react@18.2.0):
     resolution: {integrity: sha512-avNxSSsnjYg+BKpO8LVCK14KRn5pLZ+8DInMiUEeZPL6hs0SN0zafl3mJIxavGQPKyihqbXqzq4CYNflJQjaaw==, tarball: https://registry.npmjs.org/react-refractor/-/react-refractor-2.1.7.tgz}
     id: registry.npmjs.org/react-refractor/2.1.7
@@ -7669,6 +7720,12 @@ packages:
       '@types/prismjs': registry.npmjs.org/@types/prismjs@1.26.3
       hastscript: registry.npmjs.org/hastscript@7.2.0
       parse-entities: registry.npmjs.org/parse-entities@4.0.1
+    dev: false
+
+  registry.npmjs.org/regenerator-runtime@0.11.1:
+    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==, tarball: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz}
+    name: regenerator-runtime
+    version: 0.11.1
     dev: false
 
   registry.npmjs.org/regenerator-runtime@0.14.0:
