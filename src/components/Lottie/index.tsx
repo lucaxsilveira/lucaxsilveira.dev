@@ -2,6 +2,7 @@ import Lottie, { Options } from 'react-lottie';
 
 import email from '@/lotties/email.json';
 import folder from '@/lotties/folder.json';
+import home from '@/lotties/home.json';
 import open from '@/lotties/open.json';
 import repository from '@/lotties/repository.json';
 
@@ -10,6 +11,7 @@ const icons = {
   email,
   folder,
   repository,
+  home,
 };
 
 export type Icon = keyof typeof icons;
