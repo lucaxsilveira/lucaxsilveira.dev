@@ -4,7 +4,11 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
-import { isMac } from '@/utils/browser';
+import dynamic from 'next/dynamic';
+
+const DynamicShortcut = dynamic(() => import('./Shortcut'), {
+  ssr: false, // to use window variable
+});
 
 interface IMenuItem {
   name: string;
@@ -73,9 +77,9 @@ const Header = () => {
         <div>
           <span
             onClick={openSearchBar}
-            className="cursor-pointer text-lg font-light"
+            className="hidden cursor-pointer text-lg font-light md:inline-block"
           >
-            {isMac ? '⌘+K' : 'CTRL + K'}
+            <DynamicShortcut />
             <SearchBar />
           </span>
         </div>

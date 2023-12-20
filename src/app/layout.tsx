@@ -7,6 +7,7 @@ import { IReactChildren } from '@/types/react';
 
 import FlashlightBackground from '@/components/FlashlightBackground';
 import Header from '@/layout/Header';
+
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 
