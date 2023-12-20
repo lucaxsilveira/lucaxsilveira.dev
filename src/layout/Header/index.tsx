@@ -56,7 +56,9 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
               <Link
                 href={item.href}
                 key={item.name}
-                className="text-sm uppercase text-gray-200 "
+                className="text-sm uppercase text-gray-200"
+                tabIndex={index}
+                title={item.name}
               >
                 <div
                   onMouseEnter={() => handleItemHover(index)}
