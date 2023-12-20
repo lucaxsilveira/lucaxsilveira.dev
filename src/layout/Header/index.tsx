@@ -28,10 +28,10 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
         name: 'sobre',
         href: '/',
       },
-      // {
-      //   name: 'contato',
-      //   href: '/contact',
-      // },
+      {
+        name: 'contato',
+        href: '/contact',
+      },
       // {
       //   name: 'blog',
       //   href: '/posts',

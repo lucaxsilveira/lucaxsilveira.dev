@@ -10,12 +10,12 @@ import repository from '@/lotties/repository.json';
 
 const icons = {
   open,
-  email,
-  folder,
-  repository,
   home,
   heart,
+  email,
+  folder,
   glasses,
+  repository,
 };
 
 export type Icon = keyof typeof icons;

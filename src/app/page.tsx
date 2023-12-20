@@ -1,9 +1,10 @@
 import AuthorIntroPhrase from '@/components/AuthorIntroPhrase';
+import GradientText from '@/components/GradientText';
 import Image from '@/components/Image';
+import Social from '@/components/Social';
 import Text from '@/components/Text';
 import { getAuthor } from '@/useCases/authors/get-author';
 import { getJobHistory } from '@/useCases/jobHistory/get-job-history';
-import { Github, Instagram, Linkedin } from 'lucide-react';
 
 const Home = async () => {
   const author = await getAuthor({ slug: 'lucas' });
@@ -13,36 +14,17 @@ const Home = async () => {
     <div className="text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
       <div className="md:flex md:justify-between md:gap-12">
         <div className="pb-4 pt-[120px] md:sticky md:top-0 md:flex md:max-h-screen md:w-1/2 md:flex-col ">
-          <h1 className="inline select-none bg-gradient-to-r from-indigo-500 from-10% to-sky-500 to-90%  bg-clip-text text-5xl font-bold text-white">
+          <GradientText className="from-indigo-500 to-sky-500">
             Lucas Silveira.
-          </h1>
+          </GradientText>
+
           <AuthorIntroPhrase />
           <div className="mt-8 max-w-[360px] overflow-hidden rounded-lg transition-all duration-300 hover:grayscale-0 md:max-w-none md:grayscale">
             <Image value={author.image} isInline={false} />
           </div>
 
           <div className="social mt-4 flex gap-2 md:mt-auto">
-            <a
-              className="transition-colors duration-300 hover:text-gray-200"
-              href="https://www.instagram.com/lucaxsilveira/"
-              target="_blank"
-            >
-              <Instagram />
-            </a>
-            <a
-              className="transition-colors duration-300 hover:text-gray-200"
-              href="https://github.com/lucaxsilveira"
-              target="_blank"
-            >
-              <Github />
-            </a>
-            <a
-              className="transition-colors duration-300 hover:text-gray-200"
-              href="https://www.linkedin.com/in/lucax-silveira/"
-              target="_blank"
-            >
-              <Linkedin />
-            </a>
+            <Social />
           </div>
         </div>
 
