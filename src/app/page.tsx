@@ -17,7 +17,7 @@ const Home = async () => {
             Lucas Silveira.
           </h1>
           <AuthorIntroPhrase />
-          <div className="mt-8 max-w-[360px] overflow-hidden rounded-lg grayscale transition-all duration-300 hover:grayscale-0 md:max-w-none">
+          <div className="mt-8 max-w-[360px] overflow-hidden rounded-lg transition-all duration-300 hover:grayscale-0 md:max-w-none md:grayscale">
             <Image value={author.image} isInline={false} />
           </div>
 
