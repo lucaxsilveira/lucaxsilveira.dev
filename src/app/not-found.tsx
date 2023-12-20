@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 
+import GradientText from '@/components/GradientText';
 import LottieIcon from '@/components/Lottie';
 import { isMac } from '@/utils/browser';
 
@@ -32,9 +33,9 @@ const NotFound: React.FC = () => {
           speed={0.7}
         />
       </div>
-      <h1 className="inline h-[60px] select-none bg-gradient-to-r from-yellow-300 from-10% to-orange-700 to-90%  bg-clip-text text-5xl font-bold text-white">
+      <GradientText className="from-yellow-300 to-orange-700">
         Página não encontrada.
-      </h1>
+      </GradientText>
       <div className="text-bold-white mt-2 flex flex-col gap-4 text-gray-400">
         <p>
           Parece que você deu de cara com um{' '}

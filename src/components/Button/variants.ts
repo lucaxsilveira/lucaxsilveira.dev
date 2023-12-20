@@ -1,13 +1,14 @@
 import { tv } from 'tailwind-variants';
 
 export const variants = tv({
-  base: 'shadow-md shadow-grey-300/20 hover:shadow-lg hover:shadow-grey-500/40 flex items-center justify-center rounded transition-all',
+  base: 'shadow-md shadow-grey-300/20 hover:shadow-lg hover:shadow-grey-500/40 flex items-center justify-center rounded transition-all ',
   variants: {
     color: {
       default: 'bg-primary text-white hover:bg-primary-colors-500',
       secondary: {
         base: 'bg-secondary text-white hover:bg-secondary-colors-700',
       },
+      white: 'bg-white hover:bg-gray-300 text-slate-900',
     },
     size: {
       default: 'h-10 px-4 text-sm',
@@ -32,6 +33,7 @@ export const variants = tv({
     success: false,
   },
   slots: {
-    icon: 'h-4 w-4',
+    icon: 'h-4 w-4 mr-2',
+    loader: 'mr-2 animate-spin h-4 w-4',
   },
 });
