@@ -29,7 +29,7 @@ const Home = async () => {
           </div>
         </div>
 
-        <div className="text-bold-white pt-4 leading-6 md:w-1/2 md:pt-[230px]">
+        <div className="text-bold-white pt-4 leading-6 md:w-1/2 md:pt-[240px]">
           <Text value={author.bio} useComponents={false} />
 
           <section className="job-history mt-8 md:mt-36">
