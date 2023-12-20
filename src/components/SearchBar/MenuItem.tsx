@@ -32,7 +32,7 @@ const MenuItem = ({
           {name}
         </span>
         {shortcut && (
-          <div className="pointer-events-none ml-auto rounded-md bg-gray-700/70 px-2 py-[2px] text-sm text-gray-400">
+          <div className="pointer-events-none ml-auto rounded-md bg-gray-700/70 px-2 py-[2px] font-mono text-sm text-gray-400">
             {shortcut}
           </div>
         )}

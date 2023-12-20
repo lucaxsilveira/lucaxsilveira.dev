@@ -24,7 +24,13 @@ export default function RootLayout({ children }: IReactChildren) {
         className={`${rubik.className} bg-backgroud leading-relaxed antialiased`}
       >
         <Header />
-        <FlashlightBackground>{children}</FlashlightBackground>
+        <FlashlightBackground>
+          <div className="min-h-screen text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
+            <div className="min-h-screen lg:flex lg:justify-between lg:gap-12">
+              {children}
+            </div>
+          </div>
+        </FlashlightBackground>
       </body>
 
       <div id="search-wrapper" className="" />

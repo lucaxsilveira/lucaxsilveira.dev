@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
+import { isMac } from '@/utils/browser';
 
 interface IMenuItem {
   name: string;
@@ -40,10 +41,6 @@ const Header = () => {
       metaKey: true,
     });
     window.dispatchEvent(simulatedEvent);
-  }, []);
-
-  const isMac = useMemo(() => {
-    return window.navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   }, []);
 
   return (
