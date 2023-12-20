@@ -4,11 +4,6 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
-import dynamic from 'next/dynamic';
-
-const DynamicShortcut = dynamic(() => import('./Shortcut'), {
-  ssr: false, // to use window variable
-});
 
 interface IMenuItem {
   name: string;
@@ -16,7 +11,11 @@ interface IMenuItem {
   active?: boolean;
 }
 
-const Header = () => {
+interface IHeader {
+  isMac?: boolean;
+}
+
+const Header: React.FC<IHeader> = ({ isMac = false }) => {
   const [left, setLeft] = useState(0);
 
   const handleItemHover = useCallback((index: number) => {
@@ -79,7 +78,7 @@ const Header = () => {
             onClick={openSearchBar}
             className="hidden cursor-pointer text-lg font-light md:inline-block"
           >
-            <DynamicShortcut />
+            {isMac ? '⌘+K' : 'CTRL + K'}
             <SearchBar />
           </span>
         </div>

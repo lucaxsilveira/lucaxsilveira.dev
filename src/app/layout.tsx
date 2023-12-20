@@ -10,6 +10,7 @@ import Header from '@/layout/Header';
 
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
+import { headers } from 'next/headers';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
@@ -19,12 +20,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: IReactChildren) {
+  const headersList = headers();
+  const isMac = headersList.get('user-agent')?.includes('Macintosh');
+
   return (
     <html lang="en">
       <body
         className={`${rubik.className} bg-backgroud leading-relaxed antialiased`}
       >
-        <Header />
+        <Header isMac={isMac} />
         <FlashlightBackground>
           <div className="min-h-screen text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
             <div className="min-h-screen lg:flex lg:justify-between lg:gap-12">
