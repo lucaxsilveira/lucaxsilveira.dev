@@ -13,14 +13,6 @@
   -webkit-box-decoration-break: clone;
 }
 
-::-moz-selection {
-  @apply bg-emerald-300 bg-opacity-90;
-}
-
-::selection {
-  @apply bg-emerald-300 bg-opacity-90;
-}
-
 .text-bold-white strong,
 .text-bold-white b {
   color: white;

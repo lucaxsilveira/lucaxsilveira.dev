@@ -22,7 +22,7 @@ const NotFound: React.FC = () => {
   }, [router]);
 
   return (
-    <div className="flex flex-col justify-center pb-4 lg:max-h-screen">
+    <div className="flex min-h-screen flex-col justify-center pb-4 md:max-h-screen">
       <div className="flex">
         <LottieIcon
           icon="glasses"
@@ -33,7 +33,7 @@ const NotFound: React.FC = () => {
           speed={0.7}
         />
       </div>
-      <GradientText className="from-yellow-300 to-orange-700">
+      <GradientText className="min-h-[60px] from-yellow-300 to-orange-700">
         Página não encontrada.
       </GradientText>
       <div className="text-bold-white mt-2 flex flex-col gap-4 text-gray-400">
