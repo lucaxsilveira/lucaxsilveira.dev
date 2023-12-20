@@ -1,5 +1,6 @@
 import Lottie, { LottieProps } from 'react-lottie';
 
+import dev from '@/lotties/dev.json';
 import email from '@/lotties/email.json';
 import folder from '@/lotties/folder.json';
 import glasses from '@/lotties/glasses.json';
@@ -9,6 +10,7 @@ import open from '@/lotties/open.json';
 import repository from '@/lotties/repository.json';
 
 const icons = {
+  dev,
   open,
   home,
   heart,

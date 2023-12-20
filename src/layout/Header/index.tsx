@@ -50,28 +50,28 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
   return (
     <header className="navbar absolute left-0 z-10 flex w-full items-center justify-center py-2">
       <div className="flex w-full max-w-screen-xl items-center justify-between px-4 py-2 text-white md:p-0">
-        <div>header</div>
+        <div>logo</div>
         <nav className="group relative">
-          <ul className="contents gap-2">
+          <div className="contents gap-2">
             {menuItems.map((item, index) => (
-              <li
+              <Link
+                href={item.href}
                 key={item.name}
-                onMouseEnter={() => handleItemHover(index)}
-                className="relative z-10 inline-block w-[100px] cursor-pointer py-2 text-center"
+                className="text-sm uppercase text-gray-200 "
               >
-                <Link
-                  href={item.href}
-                  className="text-sm uppercase text-gray-200 "
+                <div
+                  onMouseEnter={() => handleItemHover(index)}
+                  className="relative z-10 inline-block w-[100px] cursor-pointer py-2 text-center"
                 >
                   {item.name}
-                </Link>
-              </li>
+                </div>
+              </Link>
             ))}
-            <li
+            <div
               style={{ left }}
               className="animation start-home absolute top-0 h-full w-[100px] rounded-md transition-all duration-500 hover:bg-gray-500 group-hover:bg-gray-700"
-            ></li>
-          </ul>
+            ></div>
+          </div>
         </nav>
         <div>
           <span
