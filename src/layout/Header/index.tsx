@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -24,14 +25,14 @@ const Header = () => {
         name: 'sobre',
         href: '/',
       },
-      {
-        name: 'contato',
-        href: '/contact',
-      },
-      {
-        name: 'blog',
-        href: '/posts',
-      },
+      // {
+      //   name: 'contato',
+      //   href: '/contact',
+      // },
+      // {
+      //   name: 'blog',
+      //   href: '/posts',
+      // },
     ];
   }, []);
 
