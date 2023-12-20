@@ -3,6 +3,7 @@ import GradientText from '@/components/GradientText';
 import Image from '@/components/Image';
 import Social from '@/components/Social';
 import Text from '@/components/Text';
+
 import { getAuthor } from '@/useCases/authors/get-author';
 import { getJobHistory } from '@/useCases/jobHistory/get-job-history';
 

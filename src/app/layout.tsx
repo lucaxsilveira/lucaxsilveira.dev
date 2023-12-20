@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
+import { headers } from 'next/headers';
 import Script from 'next/script';
 
-import Analytics from '@/layout/Analytics';
-import { IReactChildren } from '@/types/react';
-
 import FlashlightBackground from '@/components/FlashlightBackground';
+
+import Analytics from '@/layout/Analytics';
 import Header from '@/layout/Header';
 
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
-import { headers } from 'next/headers';
+import { IReactChildren } from '@/types/react';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
@@ -36,9 +36,10 @@ export default function RootLayout({ children }: IReactChildren) {
             </div>
           </div>
         </FlashlightBackground>
+        {/* must be in body for Hydration issues */}
+        <div id="search-wrapper" />
       </body>
 
-      <div id="search-wrapper" className="" />
       <Script
         src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"
         type="text/javascript"

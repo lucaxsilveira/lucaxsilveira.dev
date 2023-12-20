@@ -28,7 +28,7 @@
     "kbar": "0.1.0-beta.44",
     "lodash": "^4.17.21",
     "lucide-react": "^0.292.0",
-    "next": "14.0.3",
+    "next": "^14.0.4",
     "next-sanity": "5",
     "react": "^18.0.0",
     "react-dom": "^18",

@@ -41,6 +41,7 @@ const dropIn = {
 const SearchBar = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
+
   const router = useRouter();
 
   useEffect(() => {
