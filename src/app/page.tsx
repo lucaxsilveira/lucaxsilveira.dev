@@ -11,17 +11,17 @@ const Home = async () => {
 
   return (
     <div className="text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
-      <div className="lg:flex lg:justify-between lg:gap-12">
-        <div className="pb-4 pt-[120px] lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col ">
+      <div className="md:flex md:justify-between md:gap-12">
+        <div className="pb-4 pt-[120px] md:sticky md:top-0 md:flex md:max-h-screen md:w-1/2 md:flex-col ">
           <h1 className="inline select-none bg-gradient-to-r from-indigo-500 from-10% to-sky-500 to-90%  bg-clip-text text-5xl font-bold text-white">
             Lucas Silveira.
           </h1>
           <AuthorIntroPhrase />
-          <div className="mt-8 overflow-hidden rounded-lg grayscale transition-all duration-300 hover:grayscale-0">
+          <div className="mt-8 max-w-[360px] overflow-hidden rounded-lg grayscale transition-all duration-300 hover:grayscale-0 md:max-w-none">
             <Image value={author.image} isInline={false} />
           </div>
 
-          <div className="social mt-auto flex gap-2 ">
+          <div className="social mt-4 flex gap-2 md:mt-auto">
             <a
               className="transition-colors duration-300 hover:text-gray-200"
               href="https://www.instagram.com/lucaxsilveira/"
@@ -46,10 +46,10 @@ const Home = async () => {
           </div>
         </div>
 
-        <div className="text-bold-white leading-6 lg:w-1/2 lg:pt-[230px]">
+        <div className="text-bold-white pt-4 leading-6 md:w-1/2 md:pt-[230px]">
           <Text value={author.bio} useComponents={false} />
 
-          <section className="job-history mt-36">
+          <section className="job-history mt-8 md:mt-36">
             {jobHistory.map(
               ({
                 company,
@@ -69,11 +69,6 @@ const Home = async () => {
           </section>
         </div>
       </div>
-      {/* <div className="mt-16">
-        <h1 className="inline select-none bg-gradient-to-r from-yellow-300 from-10% to-orange-500 to-90%  bg-clip-text text-5xl font-bold text-white">
-          Alguns posts que eu escrevi.
-        </h1>
-      </div> */}
     </div>
   );
 };

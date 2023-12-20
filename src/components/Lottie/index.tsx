@@ -1,7 +1,8 @@
-import Lottie, { Options } from 'react-lottie';
+import Lottie, { LottieProps } from 'react-lottie';
 
 import email from '@/lotties/email.json';
 import folder from '@/lotties/folder.json';
+import glasses from '@/lotties/glasses.json';
 import heart from '@/lotties/heart.json';
 import home from '@/lotties/home.json';
 import open from '@/lotties/open.json';
@@ -14,27 +15,24 @@ const icons = {
   repository,
   home,
   heart,
+  glasses,
 };
 
 export type Icon = keyof typeof icons;
 
-interface ILottieIcon {
+interface ILottieIcon extends Omit<LottieProps, 'options'> {
   icon: Icon;
-  options?: Options;
-  width?: string | number;
-  height?: string | number;
   autoplay?: boolean;
   animate: boolean;
 }
 
 const LottieIcon: React.FC<ILottieIcon> = ({
   icon,
-  options,
   width = '28px',
   height = '28px',
   animate = false,
   autoplay = false,
-  ...rest
+  ...props
 }) => {
   return (
     <div className="lottie">
@@ -44,12 +42,11 @@ const LottieIcon: React.FC<ILottieIcon> = ({
           loop: true,
           autoplay,
           animationData: icons[icon],
-          ...options,
         }}
         speed={1.5}
         height={width}
         width={height}
-        {...rest}
+        {...props}
       />
     </div>
   );
