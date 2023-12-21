@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: false,
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

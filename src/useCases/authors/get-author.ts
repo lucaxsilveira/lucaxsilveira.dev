@@ -6,16 +6,18 @@ import { IAuthor } from '@/types/author';
 
 interface GetPostParams {
   slug: string;
+  lang: string;
   params?: QueryParams;
 }
 
 const getAuthor = async (
-  { slug, params }: GetPostParams = {} as GetPostParams,
+  { slug, lang, params }: GetPostParams = {} as GetPostParams,
 ): Promise<IAuthor> => {
   try {
     const [author] = await sanityFetch<IAuthor[]>({
-      query: groq`*[slug.current == '${slug}']{
+      query: groq`*[language == '${lang}' && slug.current == '${slug}']{
       name,
+      language,
       bio,
       slug,
       cover,

@@ -1,32 +1,37 @@
+import { format, intervalToDuration } from 'date-fns';
+import groq from 'groq';
+
 import { sanityFetch } from '@/services/sanity';
 import { IJob } from '@/types/jobs';
+
+import { getDictionary } from '@/app/[lang]/dictionaries';
+import { dateLocales } from '@/utils/language';
 import { IParams, buildQueryParams } from '@/utils/sanity';
-import { format, intervalToDuration } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
-import groq from 'groq';
 
 const DEFAULT_PARAMS = {} as IParams;
 
 type PeriodProps = {
   value: number | undefined;
-  unit: string;
-  union: string;
+  singular: string;
+  plural: string;
 };
 
-const getPeriodString = ({ value, unit, union }: PeriodProps): string => {
+const getPeriodString = ({ value, singular, plural }: PeriodProps): string => {
   if (!value) return '';
-  return `${value} ${unit}${value > 1 ? union : ''}`;
+  const isPlural = value > 1;
+
+  return `${value} ${isPlural ? plural : singular}`;
 };
 
-const formatDate = (date: string): string => {
+const formatDate = (date: string, locale: string): string => {
   return format(new Date(date), 'MMM yyyy', {
-    locale: ptBR,
+    locale: dateLocales[locale],
   });
 };
 
 const getJobHistory = async (params = DEFAULT_PARAMS): Promise<IJob[]> => {
   try {
-    let { page, perPage, orderBy, filters } = buildQueryParams(params);
+    let { page, perPage, orderBy, filters, lang } = buildQueryParams(params);
 
     const jobs = await sanityFetch<IJob[]>({
       query: groq`*[_type == "jobHistory" ${filters}]  | order(${orderBy}) [${page}...${perPage}]{
@@ -40,9 +45,11 @@ const getJobHistory = async (params = DEFAULT_PARAMS): Promise<IJob[]> => {
       ...params,
     });
 
+    const dict = await getDictionary(lang);
+
     return jobs.map((job) => {
-      const dateFromFmt = formatDate(job.dateFrom);
-      const dateToFmt = job.dateTo ? formatDate(job.dateTo) : undefined;
+      const dateFromFmt = formatDate(job.dateFrom, lang);
+      const dateToFmt = job.dateTo ? formatDate(job.dateTo, lang) : undefined;
       const endDate = job.dateTo ? new Date(job.dateTo) : new Date();
 
       const interval = intervalToDuration({
@@ -51,11 +58,19 @@ const getJobHistory = async (params = DEFAULT_PARAMS): Promise<IJob[]> => {
       });
 
       const periods = [
-        getPeriodString({ value: interval.years, unit: 'ano', union: 's' }),
-        getPeriodString({ value: interval.months, unit: 'mes', union: 'es' }),
+        getPeriodString({
+          value: interval.years,
+          singular: dict.year,
+          plural: dict.years,
+        }),
+        getPeriodString({
+          value: interval.months,
+          singular: dict.month,
+          plural: dict.months,
+        }),
       ];
 
-      const distance = periods.filter(Boolean).join(' e ');
+      const distance = periods.filter(Boolean).join(` ${dict.and} `);
 
       return {
         ...job,
