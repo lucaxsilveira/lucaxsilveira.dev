@@ -1,11 +1,11 @@
+import { toPlainText } from '@portabletext/react';
 import groq from 'groq';
+import { truncate } from 'lodash';
 
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
 import { formatDateTime, formatReadingTime } from '@/utils/date';
-import { IParams, buildQueryParams } from '@/utils/sanity';
-import { toPlainText } from '@portabletext/react';
-import { truncate } from 'lodash';
+import { buildQueryParams, IParams } from '@/utils/sanity';
 
 const DEFAULT_PARAMS = {} as IParams;
 

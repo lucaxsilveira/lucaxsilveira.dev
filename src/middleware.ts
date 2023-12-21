@@ -1,5 +1,6 @@
 import Negotiator from 'negotiator';
 import { NextRequest, NextResponse } from 'next/server';
+
 import { defaultLocale, locales } from './utils/language';
 
 const getLocale = (request: NextRequest) => {

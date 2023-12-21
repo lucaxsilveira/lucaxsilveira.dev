@@ -1,4 +1,5 @@
 import type { QueryParams } from '@sanity/client';
+
 import { client } from '../../sanity/lib/client';
 
 const DEFAULT_PARAMS = {} as QueryParams;

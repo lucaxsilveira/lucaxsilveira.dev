@@ -3,22 +3,36 @@ import { headers } from 'next/headers';
 import Script from 'next/script';
 
 import FlashlightBackground from '@/components/FlashlightBackground';
-
 import Analytics from '@/layout/Analytics';
 import Header from '@/layout/Header';
 
+import { IReactChildren } from '@/types/react';
+import { LocaleNames, locales } from '@/utils/language';
+
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
-import { IReactChildren } from '@/types/react';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
-export default function RootLayout({ children }: IReactChildren) {
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ lang: locale }));
+}
+
+type LayoutProps = {
+  params: {
+    lang: LocaleNames;
+  };
+} & IReactChildren;
+
+export default function RootLayout({
+  children,
+  params: { lang },
+}: LayoutProps) {
   const headersList = headers();
   const isMac = headersList.get('user-agent')?.includes('Macintosh');
 
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body
         className={`${rubik.className} bg-backgroud leading-relaxed antialiased selection:bg-cyan-400 selection:text-cyan-900`}
       >

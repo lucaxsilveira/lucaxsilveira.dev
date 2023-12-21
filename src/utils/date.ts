@@ -1,6 +1,7 @@
 import { toPlainText } from '@portabletext/react';
 import { format, formatDistance, intervalToDuration, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+
 import { estimateReadingTime } from './string';
 
 export const formatDateTime = (

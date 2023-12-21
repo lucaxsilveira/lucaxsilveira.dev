@@ -1,6 +1,7 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
+
+import { useRouter } from 'next/navigation';
 
 import GradientText from '@/components/GradientText';
 import LottieIcon from '@/components/Lottie';

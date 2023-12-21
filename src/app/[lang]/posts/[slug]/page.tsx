@@ -1,15 +1,13 @@
-import { IPost } from '@/types/post';
 import { toPlainText } from '@portabletext/react';
-import type { Metadata } from 'next';
-
-import { getPost } from '@/useCases/posts/get-post';
-import { getPostPaths } from '@/useCases/posts/get-post-paths';
-
 import { isEmpty, truncate } from 'lodash';
+import type { Metadata } from 'next';
 
 import MorePosts from '@/components/MorePosts';
 import Post from '@/components/Post';
 import Tag from '@/components/Tag';
+import { IPost } from '@/types/post';
+import { getPost } from '@/useCases/posts/get-post';
+import { getPostPaths } from '@/useCases/posts/get-post-paths';
 import { urlForImage } from '@/utils/image-builder';
 import './styles.css';
 

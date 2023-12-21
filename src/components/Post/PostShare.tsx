@@ -1,8 +1,10 @@
 'use client';
 
-import useClipboard from '@/hooks/useClipboard';
-import { Share } from 'lucide-react';
 import { useCallback } from 'react';
+
+import { Share } from 'lucide-react';
+
+import useClipboard from '@/hooks/useClipboard';
 
 const PostShare = () => {
   const { isCopied, copy } = useClipboard();

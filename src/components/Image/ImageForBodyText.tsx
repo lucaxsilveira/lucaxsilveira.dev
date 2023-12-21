@@ -1,6 +1,7 @@
 'use server';
 
 import { SanityImageSource } from '@sanity/asset-utils';
+
 import Image from './index';
 
 type Value = {

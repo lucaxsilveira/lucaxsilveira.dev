@@ -1,7 +1,9 @@
-import { IImage } from '@/types/image';
 import { toPlainText } from '@portabletext/react';
 import { isEmpty, truncate } from 'lodash';
 import { PortableTextBlock } from 'sanity';
+
+import { IImage } from '@/types/image';
+
 import { urlForImage } from './image-builder';
 
 interface IMetadataProps {

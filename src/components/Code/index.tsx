@@ -1,9 +1,10 @@
+import { Suspense } from 'react';
+
 import Refractor from 'react-refractor';
 import javascript from 'refractor/lang/javascript';
 import jsx from 'refractor/lang/jsx';
 import tsx from 'refractor/lang/tsx';
 
-import { Suspense } from 'react';
 import CopyButton from './CopyButton';
 import './theme.css';
 

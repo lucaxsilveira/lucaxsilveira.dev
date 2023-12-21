@@ -2,6 +2,7 @@ import Script from 'next/script';
 
 import Header from '@/layout/Header';
 import { IReactChildren } from '@/types/react';
+
 import Analytics from '../Analytics';
 
 import '@/styles/tailwind.css';
