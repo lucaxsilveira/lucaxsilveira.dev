@@ -3,6 +3,7 @@
  */
 
 import { codeInput } from '@sanity/code-input';
+import { documentInternationalization } from '@sanity/document-internationalization';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
@@ -20,6 +21,15 @@ export default defineConfig({
   plugins: [
     deskTool(),
     codeInput(),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        { id: 'pt-BR', title: 'Portuguese' },
+        { id: 'en-US', title: 'English' },
+      ],
+      bulkPublish: true,
+      schemaTypes: ['post', 'author', 'category', 'jobHistory'],
+    }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),

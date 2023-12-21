@@ -3,20 +3,25 @@ import GradientText from '@/components/GradientText';
 import Image from '@/components/Image';
 import Social from '@/components/Social';
 import Text from '@/components/Text';
+import { NextLangParams } from '@/types/next';
 
 import { getAuthor } from '@/useCases/authors/get-author';
 import { getJobHistory } from '@/useCases/jobHistory/get-job-history';
+import { generatePageMetadata } from '@/utils/metadata';
+import { getDictionary } from './dictionaries';
 
-const Home = async () => {
-  const author = await getAuthor({ slug: 'lucas' });
-  const jobHistory = await getJobHistory({ orderBy: 'dateFrom desc' });
+const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
+  const author = await getAuthor({ slug: 'lucas', lang });
+  const jobHistory = await getJobHistory({ orderBy: 'dateFrom desc', lang });
+
+  const dict = await getDictionary(lang);
 
   return (
     <div className="text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
       <div className="md:flex md:justify-between md:gap-12">
         <div className="pb-4 pt-[120px] md:sticky md:top-0 md:flex md:max-h-screen md:w-1/2 md:flex-col ">
           <GradientText className="from-indigo-500 to-sky-500">
-            Lucas Silveira.
+            {author.name}.
           </GradientText>
 
           <AuthorIntroPhrase />
@@ -44,7 +49,7 @@ const Home = async () => {
                   <h4 className="text-gray-400">{position}</h4>
 
                   <p className="mt-2 text-sm text-gray-400">
-                    {`${dateFrom} – ${dateTo || 'momento'} • ${distance}`}
+                    {`${dateFrom} – ${dateTo || dict.moment} • ${distance}`}
                   </p>
                 </div>
               ),
@@ -54,6 +59,18 @@ const Home = async () => {
       </div>
     </div>
   );
+};
+
+export const generateMetadata = async ({
+  params: { lang },
+}: NextLangParams) => {
+  const { name: title, bio, image } = await getAuthor({ slug: 'lucas', lang });
+
+  return generatePageMetadata({
+    title,
+    image,
+    description: bio,
+  });
 };
 
 export default Home;

@@ -11,6 +11,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: registry.npmjs.org/@emotion/styled@11.11.0(@emotion/react@11.11.1)(@types/react@18.2.37)(react@18.2.0)
+  '@formatjs/intl-localematcher':
+    specifier: ^0.5.2
+    version: registry.npmjs.org/@formatjs/intl-localematcher@0.5.2
   '@hookform/resolvers':
     specifier: ^3.3.2
     version: registry.npmjs.org/@hookform/resolvers@3.3.2(react-hook-form@7.49.2)
@@ -26,6 +29,9 @@ dependencies:
   '@sanity/code-input':
     specifier: ^4.1.1
     version: registry.npmjs.org/@sanity/code-input@4.1.1(@babel/runtime@7.23.6)(@codemirror/lint@6.4.2)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.1.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1)
+  '@sanity/document-internationalization':
+    specifier: ^2.0.2
+    version: registry.npmjs.org/@sanity/document-internationalization@2.0.2(@babel/core@7.23.3)(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-fast-compare@3.2.2)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(sanity@3.20.0)(styled-components@6.1.1)
   '@sanity/image-url':
     specifier: '1'
     version: registry.npmjs.org/@sanity/image-url@1.0.2
@@ -59,6 +65,9 @@ dependencies:
   lucide-react:
     specifier: ^0.292.0
     version: registry.npmjs.org/lucide-react@0.292.0(react@18.2.0)
+  negotiator:
+    specifier: ^0.6.3
+    version: registry.npmjs.org/negotiator@0.6.3
   next:
     specifier: ^14.0.4
     version: registry.npmjs.org/next@14.0.4(@babel/core@7.23.3)(react-dom@18.2.0)(react@18.2.0)
@@ -109,6 +118,9 @@ devDependencies:
   '@types/lodash':
     specifier: ^4.14.202
     version: registry.npmjs.org/@types/lodash@4.14.202
+  '@types/negotiator':
+    specifier: ^0.6.3
+    version: registry.npmjs.org/@types/negotiator@0.6.3
   '@types/node':
     specifier: ^20
     version: registry.npmjs.org/@types/node@20.9.1
@@ -205,10 +217,10 @@ packages:
       '@babel/helpers': registry.npmjs.org/@babel/helpers@7.23.2
       '@babel/parser': registry.npmjs.org/@babel/parser@7.23.3
       '@babel/template': registry.npmjs.org/@babel/template@7.22.15
-      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3
+      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3(supports-color@5.5.0)
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
       convert-source-map: registry.npmjs.org/convert-source-map@2.0.0
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       gensync: registry.npmjs.org/gensync@1.0.0-beta.2
       json5: registry.npmjs.org/json5@2.2.3
       semver: registry.npmjs.org/semver@6.3.1
@@ -226,6 +238,15 @@ packages:
       '@jridgewell/gen-mapping': registry.npmjs.org/@jridgewell/gen-mapping@0.3.3
       '@jridgewell/trace-mapping': registry.npmjs.org/@jridgewell/trace-mapping@0.3.20
       jsesc: registry.npmjs.org/jsesc@2.5.2
+    dev: false
+
+  registry.npmjs.org/@babel/helper-annotate-as-pure@7.22.5:
+    resolution: {integrity: sha512-LvBTxu8bQSQkcyKOU+a1btnNFQ1dMAd0R6PyW3arXes06F6QLWLIrd681bxRPIXlrMGR3XYnW9JyML7dP3qgxg==, tarball: https://registry.npmjs.org/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.22.5.tgz}
+    name: '@babel/helper-annotate-as-pure'
+    version: 7.22.5
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/types': registry.npmjs.org/@babel/types@7.23.3
     dev: false
 
   registry.npmjs.org/@babel/helper-compilation-targets@7.22.15:
@@ -346,7 +367,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': registry.npmjs.org/@babel/template@7.22.15
-      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3
+      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3(supports-color@5.5.0)
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
     transitivePeerDependencies:
       - supports-color
@@ -371,6 +392,19 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
+    dev: false
+
+  registry.npmjs.org/@babel/plugin-syntax-jsx@7.23.3(@babel/core@7.23.3):
+    resolution: {integrity: sha512-EB2MELswq55OHUoRZLGg/zC7QWUKfNLpE57m/S2yr1uEneIgsTgrSzXP3NXEsMkVn76OlaVVnzN+ugObuYGwhg==, tarball: https://registry.npmjs.org/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.23.3.tgz}
+    id: registry.npmjs.org/@babel/plugin-syntax-jsx/7.23.3
+    name: '@babel/plugin-syntax-jsx'
+    version: 7.23.3
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': registry.npmjs.org/@babel/core@7.23.3
+      '@babel/helper-plugin-utils': registry.npmjs.org/@babel/helper-plugin-utils@7.22.5
     dev: false
 
   registry.npmjs.org/@babel/plugin-transform-react-jsx-self@7.23.3(@babel/core@7.23.3):
@@ -427,8 +461,9 @@ packages:
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
     dev: false
 
-  registry.npmjs.org/@babel/traverse@7.23.3:
+  registry.npmjs.org/@babel/traverse@7.23.3(supports-color@5.5.0):
     resolution: {integrity: sha512-+K0yF1/9yR0oHdE0StHuEj3uTPzwwbrLGfNOndVJVV2TqA5+j3oljJUb4nmB954FLGjNem976+B+eDuLIjesiQ==, tarball: https://registry.npmjs.org/@babel/traverse/-/traverse-7.23.3.tgz}
+    id: registry.npmjs.org/@babel/traverse/7.23.3
     name: '@babel/traverse'
     version: 7.23.3
     engines: {node: '>=6.9.0'}
@@ -441,7 +476,7 @@ packages:
       '@babel/helper-split-export-declaration': registry.npmjs.org/@babel/helper-split-export-declaration@7.22.6
       '@babel/parser': registry.npmjs.org/@babel/parser@7.23.3
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       globals: registry.npmjs.org/globals@11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -861,6 +896,18 @@ packages:
       '@emotion/utils': registry.npmjs.org/@emotion/utils@1.2.1
       '@types/react': registry.npmjs.org/@types/react@18.2.37
       react: registry.npmjs.org/react@18.2.0
+    dev: false
+
+  registry.npmjs.org/@emotion/stylis@0.8.5:
+    resolution: {integrity: sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==, tarball: https://registry.npmjs.org/@emotion/stylis/-/stylis-0.8.5.tgz}
+    name: '@emotion/stylis'
+    version: 0.8.5
+    dev: false
+
+  registry.npmjs.org/@emotion/unitless@0.7.5:
+    resolution: {integrity: sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==, tarball: https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz}
+    name: '@emotion/unitless'
+    version: 0.7.5
     dev: false
 
   registry.npmjs.org/@emotion/unitless@0.8.1:
@@ -1403,7 +1450,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: registry.npmjs.org/ajv@6.12.6
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       espree: registry.npmjs.org/espree@9.6.1
       globals: registry.npmjs.org/globals@13.23.0
       ignore: registry.npmjs.org/ignore@5.3.0
@@ -1459,6 +1506,14 @@ packages:
     version: 0.1.6
     dev: false
 
+  registry.npmjs.org/@formatjs/intl-localematcher@0.5.2:
+    resolution: {integrity: sha512-txaaE2fiBMagLrR4jYhxzFO6wEdEG4TPMqrzBAcbr4HFUYzH/YC+lg6OIzKCHm8WgDdyQevxbAAV1OgcXctuGw==, tarball: https://registry.npmjs.org/@formatjs/intl-localematcher/-/intl-localematcher-0.5.2.tgz}
+    name: '@formatjs/intl-localematcher'
+    version: 0.5.2
+    dependencies:
+      tslib: registry.npmjs.org/tslib@2.6.2
+    dev: false
+
   registry.npmjs.org/@hookform/resolvers@3.3.2(react-hook-form@7.49.2):
     resolution: {integrity: sha512-Tw+GGPnBp+5DOsSg4ek3LCPgkBOuOgS5DsDV7qsWNH9LZc433kgsWICjlsh2J9p04H2K66hsXPPb9qn9ILdUtA==, tarball: https://registry.npmjs.org/@hookform/resolvers/-/resolvers-3.3.2.tgz}
     id: registry.npmjs.org/@hookform/resolvers/3.3.2
@@ -1477,7 +1532,7 @@ packages:
     engines: {node: '>=10.10.0'}
     dependencies:
       '@humanwhocodes/object-schema': registry.npmjs.org/@humanwhocodes/object-schema@2.0.1
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       minimatch: registry.npmjs.org/minimatch@3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -2001,7 +2056,7 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3
+      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3(supports-color@5.5.0)
       chalk: registry.npmjs.org/chalk@4.1.2
       esbuild: registry.npmjs.org/esbuild@0.19.5
       esbuild-register: registry.npmjs.org/esbuild-register@3.5.0(esbuild@0.19.5)
@@ -2092,6 +2147,36 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       '@sanity/diff-match-patch': registry.npmjs.org/@sanity/diff-match-patch@3.1.1
+    dev: false
+
+  registry.npmjs.org/@sanity/document-internationalization@2.0.2(@babel/core@7.23.3)(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-fast-compare@3.2.2)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(sanity@3.20.0)(styled-components@6.1.1):
+    resolution: {integrity: sha512-ICFz7yeUrUwdVSFC7VvxLkaSwPtYj8ZDutoIldWHg8JmJZYV3Fokg466t0XxdWYmanjuZPnhj+8eVv5kLrP4Vg==, tarball: https://registry.npmjs.org/@sanity/document-internationalization/-/document-internationalization-2.0.2.tgz}
+    id: registry.npmjs.org/@sanity/document-internationalization/2.0.2
+    name: '@sanity/document-internationalization'
+    version: 2.0.2
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@sanity/ui': ^1.2.2
+      react: ^18
+      sanity: ^3.0.0
+      styled-components: ^5.3.6
+    dependencies:
+      '@sanity/icons': registry.npmjs.org/@sanity/icons@2.7.0(react@18.2.0)
+      '@sanity/incompatible-plugin': registry.npmjs.org/@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': registry.npmjs.org/@sanity/ui@1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      '@sanity/uuid': registry.npmjs.org/@sanity/uuid@3.0.2
+      react: registry.npmjs.org/react@18.2.0
+      sanity: registry.npmjs.org/sanity@3.20.0(@types/node@20.9.1)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      sanity-plugin-internationalized-array: registry.npmjs.org/sanity-plugin-internationalized-array@1.10.3(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1)
+      sanity-plugin-utils: registry.npmjs.org/sanity-plugin-utils@1.6.2(@babel/core@7.23.3)(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-fast-compare@3.2.2)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(sanity@3.20.0)
+      styled-components: registry.npmjs.org/styled-components@6.1.1(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - react-dom
+      - react-fast-compare
+      - react-is
+      - rxjs
+      - supports-color
     dev: false
 
   registry.npmjs.org/@sanity/eventsource@5.0.1:
@@ -2232,6 +2317,30 @@ packages:
       react: registry.npmjs.org/react@18.2.0
       react-copy-to-clipboard: registry.npmjs.org/react-copy-to-clipboard@5.1.0(react@18.2.0)
       react-dom: registry.npmjs.org/react-dom@18.2.0(react@18.2.0)
+    dev: false
+
+  registry.npmjs.org/@sanity/language-filter@3.2.1(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1):
+    resolution: {integrity: sha512-QSPUZ3frdUF+v2WQHwBu/27ivD1Oja4AYSphtpqwyIftxMVcSyiX8x4aqlBw+jisvquypqgMDbzVP4z87o6OoA==, tarball: https://registry.npmjs.org/@sanity/language-filter/-/language-filter-3.2.1.tgz}
+    id: registry.npmjs.org/@sanity/language-filter/3.2.1
+    name: '@sanity/language-filter'
+    version: 3.2.1
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3
+      styled-components: ^5.2
+    dependencies:
+      '@sanity/icons': registry.npmjs.org/@sanity/icons@2.7.0(react@18.2.0)
+      '@sanity/incompatible-plugin': registry.npmjs.org/@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': registry.npmjs.org/@sanity/ui@1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      '@sanity/util': registry.npmjs.org/@sanity/util@3.20.0
+      react: registry.npmjs.org/react@18.2.0
+      sanity: registry.npmjs.org/sanity@3.20.0(@types/node@20.9.1)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      styled-components: registry.npmjs.org/styled-components@6.1.1(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - supports-color
     dev: false
 
   registry.npmjs.org/@sanity/logos@2.1.2(@sanity/color@2.2.5)(react@18.2.0):
@@ -2712,6 +2821,12 @@ packages:
     version: 5.1.2
     dev: false
 
+  registry.npmjs.org/@types/negotiator@0.6.3:
+    resolution: {integrity: sha512-JkXTOdKs5MF086b/pt8C3+yVp3iDUwG635L7oCH6HvJvvr6lSUU5oe/gLXnPEfYRROHjJIPgCV6cuAg8gGkntQ==, tarball: https://registry.npmjs.org/@types/negotiator/-/negotiator-0.6.3.tgz}
+    name: '@types/negotiator'
+    version: 0.6.3
+    dev: true
+
   registry.npmjs.org/@types/node@20.9.1:
     resolution: {integrity: sha512-HhmzZh5LSJNS5O8jQKpJ/3ZcrrlG6L70hpGqMIAoM9YVD0YBRNWYsfwcXq8VnSjlNpCpgLzMXdiPo+dxcvSmiA==, tarball: https://registry.npmjs.org/@types/node/-/node-20.9.1.tgz}
     name: '@types/node'
@@ -2854,7 +2969,7 @@ packages:
       '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.11.0
       '@typescript-eslint/typescript-estree': registry.npmjs.org/@typescript-eslint/typescript-estree@6.11.0(typescript@5.2.2)
       '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.11.0
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       eslint: registry.npmjs.org/eslint@8.53.0
       typescript: registry.npmjs.org/typescript@5.2.2
     transitivePeerDependencies:
@@ -2892,7 +3007,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.11.0
       '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.11.0
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       globby: registry.npmjs.org/globby@11.1.0
       is-glob: registry.npmjs.org/is-glob@4.0.3
       semver: registry.npmjs.org/semver@7.5.4
@@ -3064,7 +3179,7 @@ packages:
     version: 6.0.2
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3376,6 +3491,24 @@ packages:
       '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
       cosmiconfig: registry.npmjs.org/cosmiconfig@7.1.0
       resolve: registry.npmjs.org/resolve@1.22.8
+    dev: false
+
+  registry.npmjs.org/babel-plugin-styled-components@2.1.4(@babel/core@7.23.3)(styled-components@5.3.11):
+    resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==, tarball: https://registry.npmjs.org/babel-plugin-styled-components/-/babel-plugin-styled-components-2.1.4.tgz}
+    id: registry.npmjs.org/babel-plugin-styled-components/2.1.4
+    name: babel-plugin-styled-components
+    version: 2.1.4
+    peerDependencies:
+      styled-components: '>= 2'
+    dependencies:
+      '@babel/helper-annotate-as-pure': registry.npmjs.org/@babel/helper-annotate-as-pure@7.22.5
+      '@babel/helper-module-imports': registry.npmjs.org/@babel/helper-module-imports@7.22.15
+      '@babel/plugin-syntax-jsx': registry.npmjs.org/@babel/plugin-syntax-jsx@7.23.3(@babel/core@7.23.3)
+      lodash: registry.npmjs.org/lodash@4.17.21
+      picomatch: registry.npmjs.org/picomatch@2.3.1
+      styled-components: registry.npmjs.org/styled-components@5.3.11(@babel/core@7.23.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
     dev: false
 
   registry.npmjs.org/babel-runtime@6.26.0:
@@ -4052,8 +4185,9 @@ packages:
     dependencies:
       ms: registry.npmjs.org/ms@2.1.3
 
-  registry.npmjs.org/debug@4.3.4:
+  registry.npmjs.org/debug@4.3.4(supports-color@5.5.0):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, tarball: https://registry.npmjs.org/debug/-/debug-4.3.4.tgz}
+    id: registry.npmjs.org/debug/4.3.4
     name: debug
     version: 4.3.4
     engines: {node: '>=6.0'}
@@ -4064,6 +4198,7 @@ packages:
         optional: true
     dependencies:
       ms: registry.npmjs.org/ms@2.1.2
+      supports-color: registry.npmjs.org/supports-color@5.5.0
 
   registry.npmjs.org/decimal.js@10.4.3:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==, tarball: https://registry.npmjs.org/decimal.js/-/decimal.js-10.4.3.tgz}
@@ -4486,7 +4621,7 @@ packages:
     peerDependencies:
       esbuild: '>=0.12 <1'
     dependencies:
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       esbuild: registry.npmjs.org/esbuild@0.19.5
     transitivePeerDependencies:
       - supports-color
@@ -4651,7 +4786,7 @@ packages:
       eslint: '*'
       eslint-plugin-import: '*'
     dependencies:
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       enhanced-resolve: registry.npmjs.org/enhanced-resolve@5.15.0
       eslint: registry.npmjs.org/eslint@8.53.0
       eslint-module-utils: registry.npmjs.org/eslint-module-utils@2.8.0(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
@@ -4865,7 +5000,7 @@ packages:
       ajv: registry.npmjs.org/ajv@6.12.6
       chalk: registry.npmjs.org/chalk@4.1.2
       cross-spawn: registry.npmjs.org/cross-spawn@7.0.3
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       doctrine: registry.npmjs.org/doctrine@3.0.0
       escape-string-regexp: registry.npmjs.org/escape-string-regexp@4.0.0
       eslint-scope: registry.npmjs.org/eslint-scope@7.2.2
@@ -5180,7 +5315,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
     dev: false
 
   registry.npmjs.org/for-each@0.3.3:
@@ -5339,7 +5474,7 @@ packages:
     version: 8.4.4
     engines: {node: '>=14.0.0'}
     dependencies:
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
       decompress-response: registry.npmjs.org/decompress-response@7.0.0
       follow-redirects: registry.npmjs.org/follow-redirects@1.15.3(debug@4.3.4)
       into-stream: registry.npmjs.org/into-stream@6.0.0
@@ -5620,7 +5755,6 @@ packages:
     name: has-flag
     version: 3.0.0
     engines: {node: '>=4'}
-    dev: false
 
   registry.npmjs.org/has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==, tarball: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz}
@@ -5774,7 +5908,7 @@ packages:
     dependencies:
       '@tootallnate/once': registry.npmjs.org/@tootallnate/once@2.0.0
       agent-base: registry.npmjs.org/agent-base@6.0.2
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -5786,7 +5920,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: registry.npmjs.org/agent-base@6.0.2
-      debug: registry.npmjs.org/debug@4.3.4
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6955,6 +7089,13 @@ packages:
     name: natural-compare
     version: 1.4.0
     dev: true
+
+  registry.npmjs.org/negotiator@0.6.3:
+    resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==, tarball: https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz}
+    name: negotiator
+    version: 0.6.3
+    engines: {node: '>= 0.6'}
+    dev: false
 
   registry.npmjs.org/next-sanity@5.5.10(@sanity/client@6.8.6)(@sanity/icons@2.7.0)(@sanity/types@3.20.0)(@sanity/ui@1.9.3)(next@14.0.4)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1):
     resolution: {integrity: sha512-S/ZFq3xs3WTFl8awDjbcQI8TxzEqPfKEXFze2yTJEu3Ny0yAvSHxF6AysYyCvb8nAnpCMTJsxiHZX6OambVlpg==, tarball: https://registry.npmjs.org/next-sanity/-/next-sanity-5.5.10.tgz}
@@ -8352,6 +8493,61 @@ packages:
       '@sanity/diff-match-patch': registry.npmjs.org/@sanity/diff-match-patch@3.1.1
     dev: false
 
+  registry.npmjs.org/sanity-plugin-internationalized-array@1.10.3(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1):
+    resolution: {integrity: sha512-TcuxLk6bWaBonjTPl/lbI1MD2/6T4CpDqVm2Ipf+abhWSoDXIy4oFyxj12+sJxL+UAfNALHV+eOBGDZ9w6rvTw==, tarball: https://registry.npmjs.org/sanity-plugin-internationalized-array/-/sanity-plugin-internationalized-array-1.10.3.tgz}
+    id: registry.npmjs.org/sanity-plugin-internationalized-array/1.10.3
+    name: sanity-plugin-internationalized-array
+    version: 1.10.3
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@sanity/ui': ^1.2.2
+      react: ^18
+      sanity: ^3.0.0
+      styled-components: ^5.3.6
+    dependencies:
+      '@sanity/icons': registry.npmjs.org/@sanity/icons@2.7.0(react@18.2.0)
+      '@sanity/incompatible-plugin': registry.npmjs.org/@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/language-filter': registry.npmjs.org/@sanity/language-filter@3.2.1(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.20.0)(styled-components@6.1.1)
+      '@sanity/ui': registry.npmjs.org/@sanity/ui@1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      fast-deep-equal: registry.npmjs.org/fast-deep-equal@3.1.3
+      lodash.get: registry.npmjs.org/lodash.get@4.4.2
+      react: registry.npmjs.org/react@18.2.0
+      sanity: registry.npmjs.org/sanity@3.20.0(@types/node@20.9.1)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      styled-components: registry.npmjs.org/styled-components@6.1.1(react-dom@18.2.0)(react@18.2.0)
+      suspend-react: registry.npmjs.org/suspend-react@0.0.8(react@18.2.0)
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - supports-color
+    dev: false
+
+  registry.npmjs.org/sanity-plugin-utils@1.6.2(@babel/core@7.23.3)(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-fast-compare@3.2.2)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(sanity@3.20.0):
+    resolution: {integrity: sha512-zn4sKLaLG5ZcibPNB8RfTjU32sear2XIHPxIoIWJCHXO3yD+JEq+/MvkwW7CnfdEcZeXPfb5DEx1CGjIQwO3Iw==, tarball: https://registry.npmjs.org/sanity-plugin-utils/-/sanity-plugin-utils-1.6.2.tgz}
+    id: registry.npmjs.org/sanity-plugin-utils/1.6.2
+    name: sanity-plugin-utils
+    version: 1.6.2
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@sanity/ui': ^1.2.2
+      react: ^18
+      react-fast-compare: ^3.2.0
+      rxjs: ^7.0.0
+      sanity: ^3
+    dependencies:
+      '@sanity/icons': registry.npmjs.org/@sanity/icons@2.7.0(react@18.2.0)
+      '@sanity/incompatible-plugin': registry.npmjs.org/@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': registry.npmjs.org/@sanity/ui@1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      react: registry.npmjs.org/react@18.2.0
+      react-fast-compare: registry.npmjs.org/react-fast-compare@3.2.2
+      rxjs: registry.npmjs.org/rxjs@7.8.1
+      sanity: registry.npmjs.org/sanity@3.20.0(@types/node@20.9.1)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
+      styled-components: registry.npmjs.org/styled-components@5.3.11(@babel/core@7.23.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - react-dom
+      - react-is
+    dev: false
+
   registry.npmjs.org/sanity@3.20.0(@types/node@20.9.1)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1):
     resolution: {integrity: sha512-mGe9+pn3Y7HrIT5mgCwzEv4OHGJ6C9YlovyQE7gR5XY1p9YJNPonbWUOfhM7D3dVMfG0/OuilH1MmTc1bGnb8w==, tarball: https://registry.npmjs.org/sanity/-/sanity-3.20.0.tgz}
     id: registry.npmjs.org/sanity/3.20.0
@@ -8928,6 +9124,34 @@ packages:
     version: 4.1.0
     dev: false
 
+  registry.npmjs.org/styled-components@5.3.11(@babel/core@7.23.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==, tarball: https://registry.npmjs.org/styled-components/-/styled-components-5.3.11.tgz}
+    id: registry.npmjs.org/styled-components/5.3.11
+    name: styled-components
+    version: 5.3.11
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+      react-is: '>= 16.8.0'
+    dependencies:
+      '@babel/helper-module-imports': registry.npmjs.org/@babel/helper-module-imports@7.22.15
+      '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.3(supports-color@5.5.0)
+      '@emotion/is-prop-valid': registry.npmjs.org/@emotion/is-prop-valid@1.2.1
+      '@emotion/stylis': registry.npmjs.org/@emotion/stylis@0.8.5
+      '@emotion/unitless': registry.npmjs.org/@emotion/unitless@0.7.5
+      babel-plugin-styled-components: registry.npmjs.org/babel-plugin-styled-components@2.1.4(@babel/core@7.23.3)(styled-components@5.3.11)
+      css-to-react-native: registry.npmjs.org/css-to-react-native@3.2.0
+      hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics@3.3.2
+      react: registry.npmjs.org/react@18.2.0
+      react-dom: registry.npmjs.org/react-dom@18.2.0(react@18.2.0)
+      react-is: registry.npmjs.org/react-is@18.2.0
+      shallowequal: registry.npmjs.org/shallowequal@1.1.0
+      supports-color: registry.npmjs.org/supports-color@5.5.0
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: false
+
   registry.npmjs.org/styled-components@6.1.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cpZZP5RrKRIClBW5Eby4JM1wElLVP4NQrJbJ0h10TidTyJf4SIIwa3zLXOoPb4gJi8MsJ8mjq5mu2IrEhZIAcQ==, tarball: https://registry.npmjs.org/styled-components/-/styled-components-6.1.1.tgz}
     id: registry.npmjs.org/styled-components/6.1.1
@@ -9006,7 +9230,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       has-flag: registry.npmjs.org/has-flag@3.0.0
-    dev: false
 
   registry.npmjs.org/supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==, tarball: https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz}
@@ -9021,6 +9244,17 @@ packages:
     name: supports-preserve-symlinks-flag
     version: 1.0.0
     engines: {node: '>= 0.4'}
+
+  registry.npmjs.org/suspend-react@0.0.8(react@18.2.0):
+    resolution: {integrity: sha512-ZC3r8Hu1y0dIThzsGw0RLZplnX9yXwfItcvaIzJc2VQVi8TGyGDlu92syMB5ulybfvGLHAI5Ghzlk23UBPF8xg==, tarball: https://registry.npmjs.org/suspend-react/-/suspend-react-0.0.8.tgz}
+    id: registry.npmjs.org/suspend-react/0.0.8
+    name: suspend-react
+    version: 0.0.8
+    peerDependencies:
+      react: '>=17.0'
+    dependencies:
+      react: registry.npmjs.org/react@18.2.0
+    dev: false
 
   registry.npmjs.org/suspend-react@0.1.3(react@18.2.0):
     resolution: {integrity: sha512-aqldKgX9aZqpoDp3e8/BZ8Dm7x1pJl+qI3ZKxDN0i/IQTWUwBx/ManmlVJ3wowqbno6c2bmiIfs+Um6LbsjJyQ==, tarball: https://registry.npmjs.org/suspend-react/-/suspend-react-0.1.3.tgz}

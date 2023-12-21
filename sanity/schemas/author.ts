@@ -1,10 +1,20 @@
 import { defineField, defineType } from 'sanity';
 
+const ignoreUnique = () => {
+  return true;
+};
+
 export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
   fields: [
+    defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: false,
+    }),
     defineField({
       name: 'name',
       title: 'Name',
@@ -15,6 +25,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
+        isUnique: ignoreUnique,
         source: 'name',
         maxLength: 96,
       },
@@ -65,8 +76,17 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'name',
+      name: 'name',
       media: 'image',
+      language: 'language',
+    },
+    prepare(selection) {
+      const { name, language } = selection;
+      return {
+        title: name,
+        subtitle: `in ${language}`,
+        ...selection,
+      };
     },
   },
 });

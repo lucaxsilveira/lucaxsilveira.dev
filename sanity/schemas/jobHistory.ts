@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: false,
+    }),
+    defineField({
       name: 'company',
       title: 'Company',
       type: 'string',
@@ -31,4 +37,17 @@ export default defineType({
       type: 'text',
     }),
   ],
+  preview: {
+    select: {
+      title: 'company',
+      language: 'language',
+    },
+    prepare(selection) {
+      const { language } = selection;
+      return {
+        subtitle: `in ${language}`,
+        ...selection,
+      };
+    },
+  },
 });

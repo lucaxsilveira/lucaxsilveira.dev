@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 import { headers } from 'next/headers';
 import Script from 'next/script';
@@ -13,11 +12,6 @@ import '@/styles/tailwind.css';
 import { IReactChildren } from '@/types/react';
 
 const rubik = Rubik({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Lucas Silveira',
-  description: 'Front-end Entusiast.',
-};
 
 export default function RootLayout({ children }: IReactChildren) {
   const headersList = headers();

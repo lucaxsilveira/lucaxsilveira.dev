@@ -1,10 +1,20 @@
 import { defineField, defineType } from 'sanity';
 
+const ignoreUnique = () => {
+  return true;
+};
+
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
   fields: [
+    defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: false,
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -22,6 +32,7 @@ export default defineType({
       options: {
         source: 'title',
         maxLength: 96,
+        isUnique: ignoreUnique,
       },
     }),
     defineField({
@@ -67,16 +78,19 @@ export default defineType({
       type: 'blockContent',
     }),
   ],
-
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
       media: 'mainImage',
+      language: 'language',
     },
     prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+      const { author, language } = selection;
+      return {
+        ...selection,
+        subtitle: author && `by ${author} in ${language}`,
+      };
     },
   },
 });
