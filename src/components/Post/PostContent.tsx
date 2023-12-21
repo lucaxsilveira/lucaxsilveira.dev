@@ -1,4 +1,5 @@
 import { IPost } from '@/types/post';
+
 import Text from '../Text';
 
 interface PostContentProps {

@@ -1,5 +1,6 @@
-import { CheckCircle, Loader2 } from 'lucide-react';
 import { ComponentProps } from 'react';
+
+import { CheckCircle, Loader2 } from 'lucide-react';
 import { VariantProps } from 'tailwind-variants';
 
 import { variants } from './variants';

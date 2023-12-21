@@ -1,6 +1,7 @@
-import { portableTextComponents } from '@/utils/portable-text-components';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { PortableTextBlock } from 'sanity';
+
+import { portableTextComponents } from '@/utils/portable-text-components';
 
 interface IText {
   components?: Partial<PortableTextReactComponents> | undefined;

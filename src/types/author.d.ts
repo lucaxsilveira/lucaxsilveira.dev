@@ -1,4 +1,5 @@
 import { PortableTextBlock } from 'sanity';
+
 import { IImage } from './image';
 import { ISlug } from './slug';
 

@@ -1,4 +1,5 @@
 import { PortableTextBlock } from 'sanity';
+
 import { IAuthor } from './author';
 import { ICategory } from './category';
 import { IImage } from './image';

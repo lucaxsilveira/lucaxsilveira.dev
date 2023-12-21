@@ -1,8 +1,10 @@
 'use client';
 
-import SearchBar from '@/components/SearchBar';
-import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
+
+import Link from 'next/link';
+
+import SearchBar from '@/components/SearchBar';
 
 interface IMenuItem {
   name: string;

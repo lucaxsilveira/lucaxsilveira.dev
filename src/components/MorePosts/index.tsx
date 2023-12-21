@@ -1,10 +1,10 @@
 import { toPlainText } from '@portabletext/react';
 import { truncate } from 'lodash';
+import { headers } from 'next/headers';
 
 import { IPost } from '@/types/post';
 import { getPosts } from '@/useCases/posts/get-posts';
 
-import { headers } from 'next/headers';
 import Image from '../Image';
 
 const MorePosts = async () => {

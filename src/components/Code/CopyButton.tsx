@@ -1,8 +1,10 @@
 'use client';
 
-import useClipboard from '@/hooks/useClipboard';
-import { ClipboardCopy } from 'lucide-react';
 import { useCallback } from 'react';
+
+import { ClipboardCopy } from 'lucide-react';
+
+import useClipboard from '@/hooks/useClipboard';
 
 interface ICopyButton {
   code: string;

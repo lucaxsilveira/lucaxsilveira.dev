@@ -1,4 +1,4 @@
-import { SanityImageSource, getImageDimensions } from '@sanity/asset-utils';
+import { getImageDimensions, SanityImageSource } from '@sanity/asset-utils';
 import NextImage from 'next/image';
 
 import { urlForImage } from '@/utils/image-builder';

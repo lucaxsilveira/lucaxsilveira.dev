@@ -1,7 +1,7 @@
-import GradientText from '@/components/GradientText';
 import React from 'react';
 
 import ContactForm from '@/components/ContactForm';
+import GradientText from '@/components/GradientText';
 import Social from '@/components/Social';
 import Providers from '@/providers';
 

@@ -142,6 +142,9 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^9.0.0
     version: registry.npmjs.org/eslint-config-prettier@9.0.0(eslint@8.53.0)
+  eslint-plugin-import:
+    specifier: ^2.29.1
+    version: registry.npmjs.org/eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
   eslint-plugin-prettier:
     specifier: ^5.0.1
     version: registry.npmjs.org/eslint-plugin-prettier@5.0.1(eslint-config-prettier@9.0.0)(eslint@8.53.0)(prettier@3.1.0)
@@ -4741,8 +4744,8 @@ packages:
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser@6.11.0(eslint@8.53.0)(typescript@5.2.2)
       eslint: registry.npmjs.org/eslint@8.53.0
       eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node@0.3.9
-      eslint-import-resolver-typescript: registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.53.0)
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import@2.29.0(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
+      eslint-import-resolver-typescript: registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.53.0)
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
       eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y@6.8.0(eslint@8.53.0)
       eslint-plugin-react: registry.npmjs.org/eslint-plugin-react@7.33.2(eslint@8.53.0)
       eslint-plugin-react-hooks: registry.npmjs.org/eslint-plugin-react-hooks@4.6.0(eslint@8.53.0)
@@ -4776,7 +4779,7 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.53.0):
+  registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.53.0):
     resolution: {integrity: sha512-xgdptdoi5W3niYeuQxKmzVDTATvLYqhpwmykwsh7f6HIOStGWEIL9iqZgQDF9u9OEzrRwR8no5q2VT+bjAujTg==, tarball: https://registry.npmjs.org/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.6.1.tgz}
     id: registry.npmjs.org/eslint-import-resolver-typescript/3.6.1
     name: eslint-import-resolver-typescript
@@ -4790,7 +4793,7 @@ packages:
       enhanced-resolve: registry.npmjs.org/enhanced-resolve@5.15.0
       eslint: registry.npmjs.org/eslint@8.53.0
       eslint-module-utils: registry.npmjs.org/eslint-module-utils@2.8.0(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import@2.29.0(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
       fast-glob: registry.npmjs.org/fast-glob@3.3.2
       get-tsconfig: registry.npmjs.org/get-tsconfig@4.7.2
       is-core-module: registry.npmjs.org/is-core-module@2.13.1
@@ -4830,16 +4833,16 @@ packages:
       debug: registry.npmjs.org/debug@3.2.7
       eslint: registry.npmjs.org/eslint@8.53.0
       eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node@0.3.9
-      eslint-import-resolver-typescript: registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0)(eslint@8.53.0)
+      eslint-import-resolver-typescript: registry.npmjs.org/eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.53.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  registry.npmjs.org/eslint-plugin-import@2.29.0(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0):
-    resolution: {integrity: sha512-QPOO5NO6Odv5lpoTkddtutccQjysJuFxoPS7fAHO+9m9udNHvTCPSAMW9zGAYj8lAIdr40I8yPCdUYrncXtrwg==, tarball: https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.29.0.tgz}
-    id: registry.npmjs.org/eslint-plugin-import/2.29.0
+  registry.npmjs.org/eslint-plugin-import@2.29.1(@typescript-eslint/parser@6.11.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0):
+    resolution: {integrity: sha512-BbPC0cuExzhiMo4Ff1BTVwHpjjv28C5R+btTOGaCRC7UEz801up0JadwkeSk5Ued6TG34uaczuVuH6qyy5YUxw==, tarball: https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.29.1.tgz}
+    id: registry.npmjs.org/eslint-plugin-import/2.29.1
     name: eslint-plugin-import
-    version: 2.29.0
+    version: 2.29.1
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -4866,7 +4869,7 @@ packages:
       object.groupby: registry.npmjs.org/object.groupby@1.0.1
       object.values: registry.npmjs.org/object.values@1.1.7
       semver: registry.npmjs.org/semver@6.3.1
-      tsconfig-paths: registry.npmjs.org/tsconfig-paths@3.14.2
+      tsconfig-paths: registry.npmjs.org/tsconfig-paths@3.15.0
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -9503,10 +9506,10 @@ packages:
     name: ts-interface-checker
     version: 0.1.13
 
-  registry.npmjs.org/tsconfig-paths@3.14.2:
-    resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==, tarball: https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.14.2.tgz}
+  registry.npmjs.org/tsconfig-paths@3.15.0:
+    resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==, tarball: https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.15.0.tgz}
     name: tsconfig-paths
-    version: 3.14.2
+    version: 3.15.0
     dependencies:
       '@types/json5': registry.npmjs.org/@types/json5@0.0.29
       json5: registry.npmjs.org/json5@1.0.2

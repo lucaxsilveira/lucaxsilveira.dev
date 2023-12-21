@@ -1,12 +1,14 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
 import { Icon } from '@/components/Lottie';
 import { normalizeString } from '@/utils/string';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+
 import Menu from './Menu';
 
 export interface IMenuItem {

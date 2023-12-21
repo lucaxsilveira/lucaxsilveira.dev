@@ -1,12 +1,11 @@
 import { format, intervalToDuration } from 'date-fns';
 import groq from 'groq';
 
+import { getDictionary } from '@/app/[lang]/dictionaries';
 import { sanityFetch } from '@/services/sanity';
 import { IJob } from '@/types/jobs';
-
-import { getDictionary } from '@/app/[lang]/dictionaries';
 import { dateLocales } from '@/utils/language';
-import { IParams, buildQueryParams } from '@/utils/sanity';
+import { buildQueryParams, IParams } from '@/utils/sanity';
 
 const DEFAULT_PARAMS = {} as IParams;
 

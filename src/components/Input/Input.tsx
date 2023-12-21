@@ -1,4 +1,4 @@
-import { HTMLProps, forwardRef } from 'react';
+import { forwardRef, HTMLProps } from 'react';
 
 interface IInputProps extends HTMLProps<HTMLInputElement> {}
 

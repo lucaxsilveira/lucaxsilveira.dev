@@ -1,6 +1,7 @@
-import { ISlug } from '@/types/slug';
-import { sanityFetch } from '@/services/sanity';
 import groq from 'groq';
+
+import { sanityFetch } from '@/services/sanity';
+import { ISlug } from '@/types/slug';
 
 type Param = {
   params: {

@@ -1,5 +1,6 @@
-import classes from '@/utils/classes';
 import React from 'react';
+
+import classes from '@/utils/classes';
 
 interface IInputMessage {
   children: React.ReactNode;

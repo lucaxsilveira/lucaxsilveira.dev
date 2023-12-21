@@ -1,4 +1,5 @@
 import { IAuthor } from '@/types/author';
+
 import Image from '../Image';
 
 interface PostHeaderProps {

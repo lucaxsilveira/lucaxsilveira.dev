@@ -1,6 +1,7 @@
+import { PortableTextComponents } from '@portabletext/react';
+
 import CodeComponent from '@/components/Code';
 import ImageForBodyText from '@/components/Image/ImageForBodyText';
-import { PortableTextComponents } from '@portabletext/react';
 
 interface ICallToAction {
   value: {

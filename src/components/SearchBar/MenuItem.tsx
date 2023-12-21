@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import LottieIcon from '../Lottie';
+
 import { IMenuItem } from './';
 
 interface MenuItemProps {

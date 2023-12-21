@@ -1,5 +1,7 @@
 import { ComponentProps } from 'react';
+
 import { VariantProps } from 'tailwind-variants';
+
 import { variants } from './variants';
 
 type ButtonProps = ComponentProps<'span'> & VariantProps<typeof variants> & {};

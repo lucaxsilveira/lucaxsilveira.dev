@@ -4,10 +4,10 @@ import Image from '@/components/Image';
 import Social from '@/components/Social';
 import Text from '@/components/Text';
 import { NextLangParams } from '@/types/next';
-
 import { getAuthor } from '@/useCases/authors/get-author';
 import { getJobHistory } from '@/useCases/jobHistory/get-job-history';
 import { generatePageMetadata } from '@/utils/metadata';
+
 import { getDictionary } from './dictionaries';
 
 const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
