@@ -24,7 +24,7 @@ type LayoutProps = {
   };
 } & IReactChildren;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { lang },
 }: LayoutProps) {
@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${rubik.className} bg-backgroud leading-relaxed antialiased selection:bg-cyan-400 selection:text-cyan-900`}
       >
-        <Header isMac={isMac} />
+        <Header isMac={isMac} lang={lang} />
         <FlashlightBackground>
           <div className="min-h-screen text-gray-400">
             <div className="min-h-screen lg:flex lg:justify-between lg:gap-12">

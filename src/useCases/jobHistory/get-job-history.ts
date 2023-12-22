@@ -44,7 +44,7 @@ const getJobHistory = async (params = DEFAULT_PARAMS): Promise<IJob[]> => {
       ...params,
     });
 
-    const dict = await getDictionary(lang);
+    const dict = getDictionary(lang);
 
     return jobs.map((job) => {
       const dateFromFmt = formatDate(job.dateFrom, lang);

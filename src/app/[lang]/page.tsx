@@ -14,7 +14,7 @@ const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
   const author = await getAuthor({ slug: 'lucas', lang });
   const jobHistory = await getJobHistory({ orderBy: 'dateFrom desc', lang });
 
-  const dict = await getDictionary(lang);
+  const dict = getDictionary(lang);
 
   return (
     <div className="text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">

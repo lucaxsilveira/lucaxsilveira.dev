@@ -1,13 +1,10 @@
-import 'server-only';
-
+import { default as enUS } from '@/dictionaries/en-US.json';
+import { default as ptBR } from '@/dictionaries/pt-BR.json';
 import { LocaleNames } from '@/utils/language';
 
 const dictionaries = {
-  'pt-BR': () =>
-    import('@/dictionaries/pt-BR.json').then((module) => module.default),
-  'en-US': () =>
-    import('@/dictionaries/en-US.json').then((module) => module.default),
+  'pt-BR': ptBR,
+  'en-US': enUS,
 };
 
-export const getDictionary = async (locale: LocaleNames) =>
-  dictionaries[locale]();
+export const getDictionary = (locale: LocaleNames) => dictionaries[locale];

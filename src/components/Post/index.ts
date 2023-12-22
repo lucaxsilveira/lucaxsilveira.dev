@@ -5,7 +5,7 @@ import PostShare from './PostShare';
 import PostSubtitle from './PostSubtitle';
 import PostTitle from './PostTitle';
 
-export default {
+const post = {
   Root: PostRoot,
   Header: PostHeader,
   Title: PostTitle,
@@ -13,3 +13,5 @@ export default {
   Subtitle: PostSubtitle,
   Share: PostShare,
 };
+
+export default post;
