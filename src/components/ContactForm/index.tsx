@@ -32,9 +32,10 @@ const ContactForm: React.FC<IContactForm> = ({ lang }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['email'] });
-      alert('email enviado');
-      resetForm();
-      resetRequest();
+      setTimeout(() => {
+        resetRequest();
+        resetForm();
+      }, 1500);
     },
   });
 

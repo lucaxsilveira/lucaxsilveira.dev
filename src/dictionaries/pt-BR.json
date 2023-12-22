@@ -19,6 +19,11 @@
     "blog": "Ver posts do blog",
     "notFound": "Nenhum item encontrado pra sua busca."
   },
+  "notFound": {
+    "title": "Página não encontrada.",
+    "text": "<p> Parece que você deu de cara com um <strong>Guardião do Segredo</strong> ou um <strong>Mapa do Maroto</strong> fora de ordem. Talvez a gente precise da ajuda do <strong>Nick-Quase-Sem-Cabeça</strong> para orientar você de volta ao corredor principal de Hogwarts. Não se preocupe, <strong> até o Harry já se perdeu na Sala Precisa uma vez ou outra. </strong> </p> <span> Tente <strong>&rsquo;Accio Página Inicial&rsquo;</strong> ou <strong>conjure o teletransporte</strong> pressionando</span>",
+    "text2": "para começar uma nova jornada mágica!"
+  },
   "contact": {
     "title": "Que bom de te ver por aqui.",
     "description": "Se tiver alguma dúvida, sugestão ou só quiser <strong>bater um papo</strong>, estou à disposição! Você pode me enviar um <strong>e-mail</strong> ou me encontrar nas <strong>redes sociais</strong>. Mal posso esperar para conversar com você!",

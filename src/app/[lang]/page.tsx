@@ -19,7 +19,7 @@ const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
   return (
     <div className="text-gray-400 selection:bg-cyan-400 selection:text-cyan-900">
       <div className="md:flex md:justify-between md:gap-12">
-        <div className="pb-4 pt-[120px] md:sticky md:top-0 md:flex md:max-h-screen md:w-1/2 md:flex-col ">
+        <div className="pb-4 pt-[90px] md:sticky md:top-0 md:flex md:max-h-screen md:w-1/2 md:flex-col md:pt-[120px] ">
           <GradientText className="from-indigo-500 to-sky-500">
             {author.name}.
           </GradientText>

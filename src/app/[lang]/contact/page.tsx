@@ -19,7 +19,7 @@ const Contact: React.FC<IContact> = ({ params: { lang } }) => {
   return (
     <Providers>
       <div className="text-white md:pt-6">
-        <div className="flex flex-col pb-4 pt-[120px] lg:max-h-screen">
+        <div className="flex flex-col pb-4 pt-[90px] md:pt-[120px] lg:max-h-screen">
           <GradientText className="min-h-[60px] from-pink-300 to-rose-700">
             {dict.contact.title}
           </GradientText>
