@@ -19,6 +19,11 @@
     "blog": "Blog posts",
     "notFound": "No results found for this search."
   },
+  "notFound": {
+    "title": "Page not found.",
+    "text": "<p>It looks like you've stumbled upon an out-of-order <strong>Secret Keeper</strong> or <strong>Marauder's Map</strong>. We may need <strong>Almost-Headless-Nick</strong>'s help to guide you back to the main corridor of Hogwarts. Don't worry, <strong>even Harry has gotten lost in the Room of Requirement at one time or another. </strong> </p> <span class='end'> Try <strong>&rsquo;Accio Home&rsquo;</strong> or <strong>cast teleportation</strong> by pressing</span>",
+    "text2": "to start a new magical journey!"
+  },
   "contact": {
     "title": "It's good to see you here.",
     "description": "If you have any questions, suggestions or <strong>just want to chat</strong>, I'm at your disposal! You can send me an <strong>email</strong> or <strong>find me on social media</strong>. I can't wait to chat with you!",
