@@ -6,10 +6,14 @@ import { defaultLocale, locales } from './utils/language';
 const getLocale = (request: NextRequest) => {
   const { headers } = request;
   const acceptLanguage = headers.get('accept-language');
+  if (acceptLanguage === null) return defaultLocale;
+
   const negotiator = new Negotiator({
     headers: { 'accept-language': acceptLanguage },
   });
-  const locale = negotiator.language(locales) || defaultLocale;
+  const lacalesStr = locales.map((locale) => locale);
+
+  const locale = negotiator.language(lacalesStr) || defaultLocale;
   return locale;
 };
 

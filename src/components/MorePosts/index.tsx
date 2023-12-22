@@ -21,6 +21,7 @@ const MorePosts = async () => {
         operator: '!=',
       },
     ],
+    lang: 'en-US',
   });
 
   const getDescription = (body: any) => {
