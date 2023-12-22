@@ -115,6 +115,15 @@ devDependencies:
   '@portabletext/types':
     specifier: ^2.0.8
     version: registry.npmjs.org/@portabletext/types@2.0.8
+  '@types/babel__core':
+    specifier: ^7.20.5
+    version: registry.npmjs.org/@types/babel__core@7.20.5
+  '@types/babel__generator':
+    specifier: ^7.6.8
+    version: registry.npmjs.org/@types/babel__generator@7.6.8
+  '@types/babel__template':
+    specifier: ^7.4.4
+    version: registry.npmjs.org/@types/babel__template@7.4.4
   '@types/lodash':
     specifier: ^4.14.202
     version: registry.npmjs.org/@types/lodash@4.14.202
@@ -347,14 +356,12 @@ packages:
     name: '@babel/helper-string-parser'
     version: 7.22.5
     engines: {node: '>=6.9.0'}
-    dev: false
 
   registry.npmjs.org/@babel/helper-validator-identifier@7.22.20:
     resolution: {integrity: sha512-Y4OZ+ytlatR8AI+8KZfKuL5urKp7qey08ha31L8b3BwewJAoJamTzyvxPR/5D+KkdJCGPq/+8TukHBlY10FX9A==, tarball: https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.20.tgz}
     name: '@babel/helper-validator-identifier'
     version: 7.22.20
     engines: {node: '>=6.9.0'}
-    dev: false
 
   registry.npmjs.org/@babel/helper-validator-option@7.22.15:
     resolution: {integrity: sha512-bMn7RmyFjY/mdECUbgn9eoSY4vqvacUnS9i9vGAGttgFWesO6B4CYWA7XlpbWgBt71iv/hfbPlynohStqnu5hA==, tarball: https://registry.npmjs.org/@babel/helper-validator-option/-/helper-validator-option-7.22.15.tgz}
@@ -395,7 +402,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-    dev: false
 
   registry.npmjs.org/@babel/plugin-syntax-jsx@7.23.3(@babel/core@7.23.3):
     resolution: {integrity: sha512-EB2MELswq55OHUoRZLGg/zC7QWUKfNLpE57m/S2yr1uEneIgsTgrSzXP3NXEsMkVn76OlaVVnzN+ugObuYGwhg==, tarball: https://registry.npmjs.org/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.23.3.tgz}
@@ -494,7 +500,6 @@ packages:
       '@babel/helper-string-parser': registry.npmjs.org/@babel/helper-string-parser@7.22.5
       '@babel/helper-validator-identifier': registry.npmjs.org/@babel/helper-validator-identifier@7.22.20
       to-fast-properties: registry.npmjs.org/to-fast-properties@2.0.0
-    dev: false
 
   registry.npmjs.org/@codemirror/autocomplete@6.11.0(@codemirror/language@6.9.2)(@codemirror/state@6.3.1)(@codemirror/view@6.22.0)(@lezer/common@1.1.1):
     resolution: {integrity: sha512-LCPH3W+hl5vcO7OzEQgX6NpKuKVyiKFLGAy7FXROF6nUpsWUdQEgUb3fe/g7B0E1KZCRFfgzdKASt6Wly2UOBg==, tarball: https://registry.npmjs.org/@codemirror/autocomplete/-/autocomplete-6.11.0.tgz}
@@ -2727,25 +2732,23 @@ packages:
     engines: {node: '>= 10'}
     dev: false
 
-  registry.npmjs.org/@types/babel__core@7.20.4:
-    resolution: {integrity: sha512-mLnSC22IC4vcWiuObSRjrLd9XcBTGf59vUSoq2jkQDJ/QQ8PMI9rSuzE+aEV8karUMbskw07bKYoUJCKTUaygg==, tarball: https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.4.tgz}
+  registry.npmjs.org/@types/babel__core@7.20.5:
+    resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==, tarball: https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz}
     name: '@types/babel__core'
-    version: 7.20.4
+    version: 7.20.5
     dependencies:
       '@babel/parser': registry.npmjs.org/@babel/parser@7.23.3
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-      '@types/babel__generator': registry.npmjs.org/@types/babel__generator@7.6.7
+      '@types/babel__generator': registry.npmjs.org/@types/babel__generator@7.6.8
       '@types/babel__template': registry.npmjs.org/@types/babel__template@7.4.4
       '@types/babel__traverse': registry.npmjs.org/@types/babel__traverse@7.20.4
-    dev: false
 
-  registry.npmjs.org/@types/babel__generator@7.6.7:
-    resolution: {integrity: sha512-6Sfsq+EaaLrw4RmdFWE9Onp63TOUue71AWb4Gpa6JxzgTYtimbM086WnYTy2U67AofR++QKCo08ZP6pwx8YFHQ==, tarball: https://registry.npmjs.org/@types/babel__generator/-/babel__generator-7.6.7.tgz}
+  registry.npmjs.org/@types/babel__generator@7.6.8:
+    resolution: {integrity: sha512-ASsj+tpEDsEiFr1arWrlN6V3mdfjRMZt6LtK/Vp/kreFLnr5QH5+DhvD5nINYZXzwJvXeGq+05iUXcAzVrqWtw==, tarball: https://registry.npmjs.org/@types/babel__generator/-/babel__generator-7.6.8.tgz}
     name: '@types/babel__generator'
-    version: 7.6.7
+    version: 7.6.8
     dependencies:
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-    dev: false
 
   registry.npmjs.org/@types/babel__template@7.4.4:
     resolution: {integrity: sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A==, tarball: https://registry.npmjs.org/@types/babel__template/-/babel__template-7.4.4.tgz}
@@ -2754,7 +2757,6 @@ packages:
     dependencies:
       '@babel/parser': registry.npmjs.org/@babel/parser@7.23.3
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-    dev: false
 
   registry.npmjs.org/@types/babel__traverse@7.20.4:
     resolution: {integrity: sha512-mSM/iKUk5fDDrEV/e83qY+Cr3I1+Q3qqTuEn++HAWYjEa1+NxZr6CNrcJGf2ZTnq4HoFGC3zaTPZTobCzCFukA==, tarball: https://registry.npmjs.org/@types/babel__traverse/-/babel__traverse-7.20.4.tgz}
@@ -2762,7 +2764,6 @@ packages:
     version: 7.20.4
     dependencies:
       '@babel/types': registry.npmjs.org/@babel/types@7.23.3
-    dev: false
 
   registry.npmjs.org/@types/event-source-polyfill@1.0.2:
     resolution: {integrity: sha512-qE5zrFd73BRs5oSjVys6g/5GboqOMbzLRTUFPAhfULvvvbRAOXw9m4Wk+p1BtoZm4JgW7TljGGfVabBqvi3eig==, tarball: https://registry.npmjs.org/@types/event-source-polyfill/-/event-source-polyfill-1.0.2.tgz}
@@ -3122,7 +3123,7 @@ packages:
       '@babel/core': registry.npmjs.org/@babel/core@7.23.3
       '@babel/plugin-transform-react-jsx-self': registry.npmjs.org/@babel/plugin-transform-react-jsx-self@7.23.3(@babel/core@7.23.3)
       '@babel/plugin-transform-react-jsx-source': registry.npmjs.org/@babel/plugin-transform-react-jsx-source@7.23.3(@babel/core@7.23.3)
-      '@types/babel__core': registry.npmjs.org/@types/babel__core@7.20.4
+      '@types/babel__core': registry.npmjs.org/@types/babel__core@7.20.5
       react-refresh: registry.npmjs.org/react-refresh@0.14.0
       vite: registry.npmjs.org/vite@4.5.0(@types/node@20.9.1)
     transitivePeerDependencies:
@@ -9446,7 +9447,6 @@ packages:
     name: to-fast-properties
     version: 2.0.0
     engines: {node: '>=4'}
-    dev: false
 
   registry.npmjs.org/to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==, tarball: https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz}

@@ -11,7 +11,7 @@ export default function RootLayout({ children }: IReactChildren) {
   return (
     <html lang="en" id="html2">
       <body>
-        <Header></Header>
+        <Header lang="en-US"></Header>
         <div className="lg:mt-10">{children}</div>
       </body>
 

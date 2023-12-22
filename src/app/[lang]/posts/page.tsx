@@ -5,8 +5,8 @@ import { getAuthor } from '@/useCases/authors/get-author';
 import { getPosts } from '@/useCases/posts/get-posts';
 
 const Posts = async () => {
-  const posts = await getPosts({ page: 0, perPage: 10 });
-  const author = await getAuthor({ slug: 'lucas' });
+  const posts = await getPosts({ page: 0, perPage: 10, lang: 'en-US' });
+  const author = await getAuthor({ slug: 'lucas', lang: 'en-US' });
 
   return (
     <div className="flex w-full flex-col-reverse justify-center gap-12 lg:flex-row ">

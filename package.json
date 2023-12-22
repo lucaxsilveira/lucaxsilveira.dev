@@ -48,6 +48,9 @@
   },
   "devDependencies": {
     "@portabletext/types": "^2.0.8",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__template": "^7.4.4",
     "@types/lodash": "^4.14.202",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
