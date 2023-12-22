@@ -4,7 +4,10 @@ import { useCallback, useMemo, useState } from 'react';
 
 import Link from 'next/link';
 
+import { getDictionary } from '@/app/[lang]/dictionaries';
+import Logo from '@/components/Logo';
 import SearchBar from '@/components/SearchBar';
+import { LocaleNames } from '@/utils/language';
 
 interface IMenuItem {
   name: string;
@@ -14,23 +17,26 @@ interface IMenuItem {
 
 interface IHeader {
   isMac?: boolean;
+  lang: LocaleNames;
 }
 
-const Header: React.FC<IHeader> = ({ isMac = false }) => {
+const Header: React.FC<IHeader> = ({ isMac = false, lang }) => {
   const [left, setLeft] = useState(0);
 
   const handleItemHover = useCallback((index: number) => {
     setLeft(index * 100);
   }, []);
 
+  const dict = useMemo(() => getDictionary(lang), [lang]);
+
   const menuItems: IMenuItem[] = useMemo(() => {
     return [
       {
-        name: 'sobre',
+        name: dict.header.about,
         href: '/',
       },
       {
-        name: 'contato',
+        name: dict.header.contact,
         href: '/contact',
       },
       // {
@@ -38,7 +44,7 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
       //   href: '/posts',
       // },
     ];
-  }, []);
+  }, [dict]);
 
   const openSearchBar = useCallback(() => {
     const simulatedEvent = new KeyboardEvent('keydown', {
@@ -51,7 +57,9 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
   return (
     <header className="navbar absolute left-0 z-10 flex w-full items-center justify-center py-2">
       <div className="flex w-full max-w-screen-xl items-center justify-between px-4 py-2 text-white md:p-0">
-        <div>logo</div>
+        <div>
+          <Logo />
+        </div>
         <nav className="group relative">
           <div className="contents gap-2">
             {menuItems.map((item, index) => (
@@ -82,7 +90,7 @@ const Header: React.FC<IHeader> = ({ isMac = false }) => {
             className="hidden cursor-pointer text-lg font-light md:inline-block"
           >
             {isMac ? '⌘+K' : 'CTRL + K'}
-            <SearchBar />
+            <SearchBar lang={lang} />
           </span>
         </div>
       </div>

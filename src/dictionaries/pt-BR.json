@@ -4,5 +4,43 @@
   "years": "anos",
   "month": "mês",
   "months": "meses",
-  "and": "e"
+  "and": "e",
+  "header": {
+    "contact": "contato",
+    "about": "sobre"
+  },
+  "searchBar": {
+    "title": "atalhos",
+    "placeholder": "Digite um comando ou busque pelo nome...",
+    "repository": "Ver código fonte",
+    "copy": "Copiar link",
+    "home": "Página inicial",
+    "talk": "Fale comigo",
+    "blog": "Ver posts do blog",
+    "notFound": "Nenhum item encontrado pra sua busca."
+  },
+  "contact": {
+    "title": "Que bom de te ver por aqui.",
+    "description": "Se tiver alguma dúvida, sugestão ou só quiser <strong>bater um papo</strong>, estou à disposição! Você pode me enviar um <strong>e-mail</strong> ou me encontrar nas <strong>redes sociais</strong>. Mal posso esperar para conversar com você!",
+    "form": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Harry"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "potter@hogwarts.com"
+      },
+
+      "message": {
+        "label": "Mensagem",
+        "placeholder": "Qual das relíquias da morte você gostaria de possuir?"
+      },
+      "button": {
+        "iddle": "Enviar e-mail",
+        "loading": "Enviando e-mail...",
+        "success": "E-mail enviado!"
+      }
+    }
+  }
 }

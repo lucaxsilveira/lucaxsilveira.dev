@@ -2,6 +2,7 @@
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "plugins": ["import"],
   "rules": {
+    "jsx-a11y/alt-text": "off",
     "sort-imports": [
       "error",
       { "ignoreCase": true, "ignoreDeclarationSort": true }

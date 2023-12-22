@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import ContactForm from '@/components/ContactForm';
 import GradientText from '@/components/GradientText';
 import Social from '@/components/Social';
 import Providers from '@/providers';
+import { LocaleNames } from '@/utils/language';
+import { getDictionary } from '../dictionaries';
 
-const Contact: React.FC = () => {
+interface IContact {
+  params: {
+    lang: LocaleNames;
+  };
+}
+
+const Contact: React.FC<IContact> = ({ params: { lang } }) => {
+  const dict = useMemo(() => getDictionary(lang), [lang]);
+
   return (
     <Providers>
       <div className="text-white md:pt-6">
         <div className="flex flex-col pb-4 pt-[120px] lg:max-h-screen">
-          <GradientText className="from-pink-300 to-rose-700">
-            Que bom de te ver por aqui.
+          <GradientText className="min-h-[60px] from-pink-300 to-rose-700">
+            {dict.contact.title}
           </GradientText>
 
           <div className="text-bold-white mt-4 flex flex-col gap-4 text-gray-400">
-            <p>
-              Se tiver alguma dúvida, sugestão ou só quiser{' '}
-              <strong>bater um papo</strong>, estou à disposição! Você pode me
-              enviar um <strong>e-mail</strong> ou me encontrar nas{' '}
-              <strong>redes sociais</strong>. Mal posso esperar para conversar
-              com você!
-            </p>
+            <p
+              dangerouslySetInnerHTML={{ __html: dict.contact.description }}
+            ></p>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="">
-              <ContactForm />
+            <div>
+              <ContactForm lang={lang} />
             </div>
             <div className="mt-auto flex gap-2 text-gray-300">
               <Social />

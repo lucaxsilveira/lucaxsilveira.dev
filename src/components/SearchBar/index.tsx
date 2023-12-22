@@ -6,7 +6,9 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
+import { getDictionary } from '@/app/[lang]/dictionaries';
 import { Icon } from '@/components/Lottie';
+import { LocaleNames } from '@/utils/language';
 import { normalizeString } from '@/utils/string';
 
 import Menu from './Menu';
@@ -40,11 +42,19 @@ const dropIn = {
   },
 };
 
-const SearchBar = () => {
+interface ISearchBar {
+  lang: LocaleNames;
+}
+
+const SearchBar: React.FC<ISearchBar> = ({ lang }) => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
 
   const router = useRouter();
+
+  console.log('router', router);
+
+  const dict = useMemo(() => getDictionary(lang), [lang]);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -82,7 +92,7 @@ const SearchBar = () => {
   const menuItems: IMenuItem[] = useMemo(
     () => [
       {
-        name: 'Copiar link',
+        name: dict.searchBar.copy,
         action: () => {
           navigator.clipboard.writeText(window.location.href);
           commonActions();
@@ -91,7 +101,7 @@ const SearchBar = () => {
         shortcut: 'L',
       },
       {
-        name: 'Ver código fonte',
+        name: dict.searchBar.repository,
         action: () => {
           window.open('https://github.com/lucaxsilveira/lucaxsilveira.dev');
           commonActions();
@@ -100,7 +110,7 @@ const SearchBar = () => {
         shortcut: 'C',
       },
       {
-        name: 'Página inicial',
+        name: dict.searchBar.home,
         action: () => {
           router.push('/');
           commonActions();
@@ -109,7 +119,7 @@ const SearchBar = () => {
         shortcut: 'I',
       },
       {
-        name: 'Fale comigo',
+        name: dict.searchBar.talk,
         action: () => {
           router.push('/contact');
           commonActions();
@@ -118,7 +128,7 @@ const SearchBar = () => {
         shortcut: 'FC',
       },
       {
-        name: 'Ver posts do blog',
+        name: dict.searchBar.blog,
         action: () => {
           router.push('/posts');
           commonActions();
@@ -127,7 +137,7 @@ const SearchBar = () => {
         shortcut: 'B',
       },
     ],
-    [router, commonActions],
+    [router, commonActions, dict],
   );
 
   const items = useMemo<IMenuItem[]>(() => {
@@ -187,7 +197,7 @@ const SearchBar = () => {
             autoFocus
             type="text"
             className="h-[40px] w-full bg-transparent pl-4 text-gray-200 outline-none "
-            placeholder="Digite um comando ou busque pelo nome..."
+            placeholder={dict.searchBar.placeholder}
             onChange={handleSearchChange}
             onKeyDown={handleKeyPress}
           />
@@ -195,12 +205,12 @@ const SearchBar = () => {
 
         <div className="text-gray-300">
           <span className="pl-4 text-2xs font-light uppercase tracking-widest text-white">
-            Atalhos
+            {dict.searchBar.title}
           </span>
           {items.length <= 0 && (
             <div className="p-4">
               <p className="text-2xs font-light uppercase tracking-wider">
-                Nenhum item encontrado pra sua busca
+                {dict.searchBar.notFound}
               </p>
             </div>
           )}

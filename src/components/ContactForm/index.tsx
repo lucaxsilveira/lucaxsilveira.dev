@@ -1,17 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { getDictionary } from '@/app/[lang]/dictionaries';
 import Button from '@/components/Button';
 import { Input } from '@/components/Input';
 import { sendEmail } from '@/services/send-email';
+import { LocaleNames } from '@/utils/language';
 import { EmailSchemaValidation, TEmail } from '@/validations/email.schema';
 
-const ContactForm: React.FC = () => {
+interface IContactForm {
+  lang: LocaleNames;
+}
+
+const ContactForm: React.FC<IContactForm> = ({ lang }) => {
   const queryClient = useQueryClient();
 
   const {
@@ -45,6 +51,8 @@ const ContactForm: React.FC = () => {
     resolver: zodResolver(EmailSchemaValidation),
   });
 
+  const dict = useMemo(() => getDictionary(lang), [lang]);
+
   return (
     <div className="flex w-full flex-col">
       <form
@@ -52,10 +60,10 @@ const ContactForm: React.FC = () => {
         className="flex w-full flex-col gap-4"
       >
         <Input.Root>
-          <Input.Label text="Nome" />
+          <Input.Label text={dict.contact.form.name.label} />
           <Input.Group>
             <Input.Input
-              placeholder="Harry"
+              placeholder={dict.contact.form.name.placeholder}
               type="text"
               data-testid="name"
               {...register('name')}
@@ -65,10 +73,10 @@ const ContactForm: React.FC = () => {
           <Input.Message error>{formErrors.name?.message}</Input.Message>
         </Input.Root>
         <Input.Root>
-          <Input.Label text="E-mail" />
+          <Input.Label text={dict.contact.form.email.label} />
           <Input.Group>
             <Input.Input
-              placeholder="potter@hogwarts.com"
+              placeholder={dict.contact.form.email.placeholder}
               type="text"
               data-testid="email"
               {...register('email')}
@@ -78,10 +86,10 @@ const ContactForm: React.FC = () => {
           <Input.Message error>{formErrors.email?.message}</Input.Message>
         </Input.Root>
         <Input.Root>
-          <Input.Label text="Mensagem" />
+          <Input.Label text={dict.contact.form.message.label} />
           <Input.Group>
             <Input.Textarea
-              placeholder="Qual das relíquias da morte você gostaria de possuir?"
+              placeholder={dict.contact.form.message.placeholder}
               data-testid="message"
               {...register('message')}
               disabled={isPending}
@@ -97,9 +105,9 @@ const ContactForm: React.FC = () => {
           loading={isPending}
           success={isSuccess}
         >
-          {!isSuccess && !isPending && 'Enviar e-mail'}
-          {isSuccess && 'E-mail enviado!'}
-          {isPending && 'Enviando e-mail'}
+          {!isSuccess && !isPending && dict.contact.form.button.iddle}
+          {isSuccess && dict.contact.form.button.success}
+          {isPending && dict.contact.form.button.loading}
         </Button>
       </form>
       {error && <p className="text-pink-400">{error.message}</p>}

@@ -4,5 +4,43 @@
   "years": "years",
   "month": "month",
   "months": "months",
-  "and": "and"
+  "and": "and",
+  "header": {
+    "contact": "contact",
+    "about": "about"
+  },
+  "searchBar": {
+    "title": "Shortcuts",
+    "placeholder": "Type a command or search by name...",
+    "repository": "View source code",
+    "copy": "Copy link",
+    "home": "Home",
+    "talk": "Talk to me",
+    "blog": "Blog posts",
+    "notFound": "No results found for this search."
+  },
+  "contact": {
+    "title": "It's good to see you here.",
+    "description": "If you have any questions, suggestions or <strong>just want to chat</strong>, I'm at your disposal! You can send me an <strong>email</strong> or <strong>find me on social media</strong>. I can't wait to chat with you!",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Harry"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "potter@hogwarts.com"
+      },
+
+      "message": {
+        "label": "Message",
+        "placeholder": "Which of the deathly hallows would you like to possess?"
+      },
+      "button": {
+        "iddle": "Send an e-mail",
+        "loading": "Sending e-mail...",
+        "success": "E-mail sent!"
+      }
+    }
+  }
 }
