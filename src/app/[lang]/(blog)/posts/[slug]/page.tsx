@@ -20,6 +20,8 @@ interface IParams {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 const PostPage = async ({ params: { slug, lang } }: IParams) => {
   const post: IPost = await getPost({ slug, lang });
 
