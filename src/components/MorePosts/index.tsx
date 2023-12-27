@@ -1,15 +1,23 @@
 import { toPlainText } from '@portabletext/react';
-import { truncate } from 'lodash';
+import { isEmpty, truncate } from 'lodash';
 import { headers } from 'next/headers';
 
 import { IPost } from '@/types/post';
 import { getPosts } from '@/useCases/posts/get-posts';
 
+import { getDictionary } from '@/utils/dictionaries';
+import { LocaleNames } from '@/utils/language';
 import Image from '../Image';
 
-const MorePosts = async () => {
+interface IMorePosts {
+  lang: LocaleNames;
+}
+
+const MorePosts: React.FC<IMorePosts> = async ({ lang }) => {
   const headersList = headers();
   const pathname = headersList.get('x-pathname')?.replace('/posts/', '');
+
+  const dict = getDictionary(lang);
 
   const posts: IPost[] = await getPosts({
     page: 0,
@@ -21,7 +29,7 @@ const MorePosts = async () => {
         operator: '!=',
       },
     ],
-    lang: 'en-US',
+    lang,
   });
 
   const getDescription = (body: any) => {
@@ -40,10 +48,12 @@ const MorePosts = async () => {
     });
   };
 
+  if (isEmpty(posts)) return <></>;
+
   return (
-    <div className="more-posts flex w-full flex-col items-center justify-center bg-gray-100">
+    <div className="more-posts flex w-full flex-col items-center justify-center bg-gray-100 py-8">
       <div className="max-w-[680px] p-4 py-8 md:min-w-[680px] md:p-0">
-        <p className="mb-4 text-sm ">Você também pode gostar de:</p>
+        <p className="text-muted mb-4 text-sm">{dict.postPage.more}</p>
         <div className="grid gap-8 md:grid-cols-2">
           {posts.map((post) => (
             <a href={`/posts/${post.slug.current}`} key={post.slug.current}>

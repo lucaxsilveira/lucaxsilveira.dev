@@ -27,21 +27,26 @@ export function middleware(request: NextRequest) {
   requestHeaders.set('x-origin', origin);
   requestHeaders.set('x-pathname', pathname);
 
-  // return NextResponse.next({
-  //   request: {
-  //     headers: requestHeaders,
-  //   },
-  // });
+  const response = NextResponse.next({
+    request: {
+      // New request headers
+      headers: requestHeaders,
+    },
+  });
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return response;
 
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  return NextResponse.rewrite(request.nextUrl);
+  return NextResponse.rewrite(request.nextUrl, {
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
 export const config = {

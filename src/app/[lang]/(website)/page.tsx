@@ -3,12 +3,13 @@ import GradientText from '@/components/GradientText';
 import Image from '@/components/Image';
 import Social from '@/components/Social';
 import Text from '@/components/Text';
+
 import { NextLangParams } from '@/types/next';
 import { getAuthor } from '@/useCases/authors/get-author';
 import { getJobHistory } from '@/useCases/jobHistory/get-job-history';
-import { generatePageMetadata } from '@/utils/metadata';
 
-import { getDictionary } from './dictionaries';
+import { getDictionary } from '@/utils/dictionaries';
+import { generatePageMetadata } from '@/utils/metadata';
 
 const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
   const author = await getAuthor({ slug: 'lucas', lang });
@@ -23,19 +24,20 @@ const Home: React.FC<NextLangParams> = async ({ params: { lang } }) => {
           <GradientText className="from-indigo-500 to-sky-500">
             {author.name}.
           </GradientText>
-
           <AuthorIntroPhrase />
+
           <div className="mt-8 max-w-[360px] overflow-hidden rounded-lg transition-all duration-300 hover:grayscale-0 md:max-w-none md:grayscale">
             <Image value={author.image} isInline={false} />
           </div>
-
           <div className="social mt-4 flex gap-2 md:mt-auto">
             <Social />
           </div>
         </div>
 
         <div className="text-bold-white pt-4 leading-6 md:w-1/2 md:pt-[240px]">
-          <Text value={author.bio} useComponents={false} />
+          <div className="flex flex-col gap-4">
+            <Text value={author.bio} useComponents={false} />
+          </div>
 
           <section className="job-history mt-8 md:mt-36">
             {jobHistory.map(

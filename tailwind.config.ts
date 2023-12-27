@@ -25,7 +25,7 @@ const config: Config = {
       },
       colors: {
         ...colors,
-        primary: colors.blue[500], // sky[600],
+        primary: colors.blue[500],
         secondary: colors.violet[600],
         'primary-colors': colors.blue,
         'secondary-colors': colors.violet,

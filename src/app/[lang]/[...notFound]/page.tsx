@@ -9,7 +9,7 @@ import LottieIcon from '@/components/Lottie';
 import useCheckMobileScreen from '@/hooks/useCheckMobileScreen';
 import { NextLangParams } from '@/types/next';
 import { isMac } from '@/utils/browser';
-import { getDictionary } from '../dictionaries';
+import { getDictionary } from '@/utils/dictionaries';
 
 import './styles.css';
 

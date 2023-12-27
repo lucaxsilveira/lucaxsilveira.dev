@@ -14,7 +14,7 @@ Refractor.registerLanguage(tsx);
 
 type CodeType = {
   code: string;
-  language: string;
+  language?: string;
   highlightedLines?: number[];
 };
 
@@ -23,6 +23,8 @@ interface ICode {
 }
 
 const Code = ({ value }: ICode) => {
+  if (!value || !value.code) return null;
+
   return (
     <div className="code-wrapper relative mb-6 overflow-hidden rounded-lg text-xs md:text-lg">
       <Suspense fallback={<p>loading...</p>}>
@@ -30,7 +32,7 @@ const Code = ({ value }: ICode) => {
       </Suspense>
 
       <Refractor
-        language={value.language}
+        language={value.language || 'javascript'}
         value={value.code}
         markers={value.highlightedLines}
       />

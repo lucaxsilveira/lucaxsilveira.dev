@@ -4,8 +4,11 @@ import ContactForm from '@/components/ContactForm';
 import GradientText from '@/components/GradientText';
 import Social from '@/components/Social';
 import Providers from '@/providers';
+import { NextLangParams } from '@/types/next';
+import { getAuthor } from '@/useCases/authors/get-author';
+import { getDictionary } from '@/utils/dictionaries';
 import { LocaleNames } from '@/utils/language';
-import { getDictionary } from '../dictionaries';
+import { generatePageMetadata } from '@/utils/metadata';
 
 interface IContact {
   params: {
@@ -31,9 +34,7 @@ const Contact: React.FC<IContact> = ({ params: { lang } }) => {
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div>
-              <ContactForm lang={lang} />
-            </div>
+            <ContactForm lang={lang} />
             <div className="mt-auto flex gap-2 text-gray-300">
               <Social />
             </div>
@@ -42,6 +43,19 @@ const Contact: React.FC<IContact> = ({ params: { lang } }) => {
       </div>
     </Providers>
   );
+};
+
+export const generateMetadata = async ({
+  params: { lang },
+}: NextLangParams) => {
+  const { image } = await getAuthor({ slug: 'lucas', lang });
+  const dict = getDictionary(lang);
+
+  return generatePageMetadata({
+    image,
+    title: dict.contact.title,
+    description: dict.contact.description,
+  });
 };
 
 export default Contact;

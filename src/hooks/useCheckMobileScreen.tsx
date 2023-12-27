@@ -1,7 +1,11 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 const useCheckMobileScreen = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(
+    typeof window === 'undefined' ? 0 : window.innerWidth,
+  );
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
