@@ -6,10 +6,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { getDictionary } from '@/app/[lang]/dictionaries';
 import Button from '@/components/Button';
 import { Input } from '@/components/Input';
 import { sendEmail } from '@/services/send-email';
+import { getDictionary } from '@/utils/dictionaries';
 import { LocaleNames } from '@/utils/language';
 import { EmailSchemaValidation, TEmail } from '@/validations/email.schema';
 
@@ -73,6 +73,7 @@ const ContactForm: React.FC<IContactForm> = ({ lang }) => {
           </Input.Group>
           <Input.Message error>{formErrors.name?.message}</Input.Message>
         </Input.Root>
+
         <Input.Root>
           <Input.Label text={dict.contact.form.email.label} />
           <Input.Group>
@@ -86,6 +87,7 @@ const ContactForm: React.FC<IContactForm> = ({ lang }) => {
           </Input.Group>
           <Input.Message error>{formErrors.email?.message}</Input.Message>
         </Input.Root>
+
         <Input.Root>
           <Input.Label text={dict.contact.form.message.label} />
           <Input.Group>

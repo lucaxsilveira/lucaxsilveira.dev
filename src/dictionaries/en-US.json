@@ -47,5 +47,15 @@
         "success": "E-mail sent!"
       }
     }
-  }
+  },
+  "posts": {
+    "title": "I'm still writing, but you can find some posts here.",
+    "description": "Explore our Wizard's Diary: an enchanting collection of <strong>magical and fascinating articles</strong>! On each page, you you will find <strong>knowledge spells</strong>, curiosities and stories that even a Hippogriff would approve of. Expect Reading! 📜✨"
+  },
+  "postPage": {
+    "published": "Published",
+    "in": "in",
+    "more": "You may also like:"
+  },
+  "reading": "read"
 }

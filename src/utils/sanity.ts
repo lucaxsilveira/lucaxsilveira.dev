@@ -15,7 +15,15 @@ export interface IParams {
   lang: LocaleNames;
 }
 
-export const buildQueryParams = (params: IParams) => {
+export interface QueryResponse {
+  filterString: string;
+  page: number;
+  perPage: number;
+  orderBy: string;
+  lang: LocaleNames;
+}
+
+export const buildQueryParams = (params: IParams): QueryResponse => {
   let {
     page = 0,
     perPage = 10,
@@ -31,5 +39,5 @@ export const buildQueryParams = (params: IParams) => {
     if (filterString) filterString = `&& ${filterString}`;
   }
 
-  return { filters: filterString, page, perPage, orderBy, ...params };
+  return { filterString, page, perPage, orderBy, ...params };
 };

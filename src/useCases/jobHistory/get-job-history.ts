@@ -1,9 +1,9 @@
 import { format, intervalToDuration } from 'date-fns';
 import groq from 'groq';
 
-import { getDictionary } from '@/app/[lang]/dictionaries';
 import { sanityFetch } from '@/services/sanity';
 import { IJob } from '@/types/jobs';
+import { getDictionary } from '@/utils/dictionaries';
 import { dateLocales } from '@/utils/language';
 import { buildQueryParams, IParams } from '@/utils/sanity';
 
@@ -30,10 +30,11 @@ const formatDate = (date: string, locale: string): string => {
 
 const getJobHistory = async (params = DEFAULT_PARAMS): Promise<IJob[]> => {
   try {
-    let { page, perPage, orderBy, filters, lang } = buildQueryParams(params);
+    let { page, perPage, orderBy, filterString, lang } =
+      buildQueryParams(params);
 
     const jobs = await sanityFetch<IJob[]>({
-      query: groq`*[_type == "jobHistory" ${filters}]  | order(${orderBy}) [${page}...${perPage}]{
+      query: groq`*[_type == "jobHistory" ${filterString}]  | order(${orderBy}) [${page}...${perPage}]{
       company,
       position,
       dateFrom,

@@ -4,21 +4,28 @@ import { truncate } from 'lodash';
 
 import { sanityFetch } from '@/services/sanity';
 import { IPost } from '@/types/post';
+
 import { formatDateTime, formatReadingTime } from '@/utils/date';
-import { buildQueryParams, IParams } from '@/utils/sanity';
+
+// eslint-disable-next-line sort-imports
+import { IParams, buildQueryParams } from '@/utils/sanity';
 
 const DEFAULT_PARAMS = {} as IParams;
 
 const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
   try {
-    let { page, perPage, orderBy, filters } = buildQueryParams(params);
+    let { page, perPage, orderBy, filterString, lang } =
+      buildQueryParams(params);
+
+    const expression = `language == "${lang}" && _type == "post" ${filterString}]  | order(${orderBy}) [${page}...${perPage}`;
 
     const posts = await sanityFetch<IPost[]>({
-      query: groq`*[_type == "post" ${filters}]  | order(${orderBy}) [${page}...${perPage}]{
+      query: groq`*[${expression}]{
       title,
       subtitle,
       slug,
       mainImage,
+      language,
       publishedAt,
       body,
       author->{
@@ -35,9 +42,10 @@ const getPosts = async (params = DEFAULT_PARAMS): Promise<IPost[]> => {
       tags: ['posts'],
       ...params,
     });
+
     return posts.map((post) => {
-      const date = formatDateTime(post.publishedAt) || '';
-      const readingTime = formatReadingTime(post.body);
+      const date = formatDateTime(post.publishedAt, lang) || '';
+      const readingTime = formatReadingTime(post.body, lang);
 
       const bodyText = toPlainText(post.body);
       let description = bodyText.replaceAll('\n', ' ');

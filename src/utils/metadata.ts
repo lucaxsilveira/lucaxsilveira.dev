@@ -8,7 +8,7 @@ import { urlForImage } from './image-builder';
 
 interface IMetadataProps {
   image: IImage;
-  description: PortableTextBlock[];
+  description: string | PortableTextBlock[];
   title: string;
 }
 
@@ -26,7 +26,13 @@ export const generatePageMetadata = ({
     images = [imageUrl];
   }
 
-  const bodyText = description ? toPlainText(description) : '';
+  let bodyText = null;
+  if (typeof description === 'string') {
+    bodyText = description.replace(/<\/?[^>]+(>|$)/g, '');
+  } else {
+    bodyText = toPlainText(description);
+  }
+
   descriptionText = bodyText.replaceAll('\n', ' ');
   descriptionText = truncate(descriptionText, {
     length: 150,

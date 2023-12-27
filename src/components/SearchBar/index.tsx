@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { createPortal } from 'react-dom';
 
-import { getDictionary } from '@/app/[lang]/dictionaries';
 import { Icon } from '@/components/Lottie';
+import { getDictionary } from '@/utils/dictionaries';
 import { LocaleNames } from '@/utils/language';
 import { normalizeString } from '@/utils/string';
 
@@ -51,8 +51,6 @@ const SearchBar: React.FC<ISearchBar> = ({ lang }) => {
   const [search, setSearch] = useState('');
 
   const router = useRouter();
-
-  console.log('router', router);
 
   const dict = useMemo(() => getDictionary(lang), [lang]);
 

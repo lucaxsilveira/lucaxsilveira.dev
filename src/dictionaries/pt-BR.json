@@ -47,5 +47,15 @@
         "success": "E-mail enviado!"
       }
     }
-  }
+  },
+  "posts": {
+    "title": "Eu continuo escrevendo, mas você pode encontrar alguns posts aqui",
+    "description": "Explore nosso Diário de Bruxo: uma coleção encantadora de <strong>artigos mágicos e fascinantes</strong>! Em cada página, você encontrará <strong>feitiços de conhecimento</strong>, encantamentos de curiosidades e histórias que até mesmo um Hipogrifo aprovaria. Expecto Leitura! 📜✨"
+  },
+  "postPage": {
+    "published": "Publicado",
+    "in": "em",
+    "more": "Você também pode gostar de:"
+  },
+  "reading": "de leitura"
 }
