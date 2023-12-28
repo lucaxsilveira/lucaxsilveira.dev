@@ -5,3 +5,9 @@ export type NextLangParams = {
     lang: LocaleNames;
   };
 };
+
+export type LayoutProps = {
+  params: {
+    lang: LocaleNames;
+  };
+} & IReactChildren;

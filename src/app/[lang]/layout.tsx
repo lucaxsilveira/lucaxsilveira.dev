@@ -1,20 +1,26 @@
+import { Viewport } from 'next';
 import { Rubik } from 'next/font/google';
 import Script from 'next/script';
+
 const rubik = Rubik({ subsets: ['latin'] });
 
 import Analytics from '@/layout/Analytics';
+import { LayoutProps } from '@/types/next';
 
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 
+export const viewport: Viewport = {
+  themeColor: '#0e0c12',
+};
+
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  params: { lang },
+}: LayoutProps) {
   return (
-    <html lang="en">
-      <body className={`${rubik.className}`}>{children}</body>
+    <html lang={lang} className={rubik.className}>
+      {children}
 
       <Script
         src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"
