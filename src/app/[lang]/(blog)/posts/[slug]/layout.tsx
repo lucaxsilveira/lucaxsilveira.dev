@@ -20,13 +20,13 @@ export default function RootLayout({
   const isMac = headersList.get('user-agent')?.includes('Macintosh');
 
   return (
-    <div className="bg-white" {...props}>
+    <body className="bg-white" {...props}>
       <Header light={true} isMac={isMac} lang={lang} />
 
       {children}
 
       {/* must be in body for Hydration issues */}
       <div id="search-wrapper" />
-    </div>
+    </body>
   );
 }

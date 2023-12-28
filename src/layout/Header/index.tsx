@@ -77,7 +77,7 @@ const Header: React.FC<IHeader> = ({ light = false, isMac = false, lang }) => {
     <header className="navbar absolute left-0 z-10 flex w-full items-center justify-center py-2">
       <div
         data-light={light}
-        className="flex w-full max-w-screen-xl items-center justify-between px-4 py-2 data-[light=false]:text-gray-200 data-[light]:text-gray-800 md:p-0"
+        className="flex w-full max-w-screen-xl items-center justify-between px-4 py-2 data-[light=false]:text-gray-200 data-[light=true]:text-gray-800  md:p-0"
       >
         <Link href={`/${lang}`} title="home" tabIndex={0}>
           <Logo />
@@ -89,7 +89,7 @@ const Header: React.FC<IHeader> = ({ light = false, isMac = false, lang }) => {
                 href={`/${lang}${item.href}`}
                 key={item.name}
                 data-light={light}
-                className="text-sm uppercase "
+                className="text-sm uppercase"
                 tabIndex={index}
                 title={item.name}
               >
@@ -104,7 +104,7 @@ const Header: React.FC<IHeader> = ({ light = false, isMac = false, lang }) => {
             <div
               style={{ left }}
               data-light={light}
-              className="animation start-home absolute top-0 h-full w-[100px] rounded-md transition-all duration-500 group-hover:data-[light=false]:bg-gray-700 group-hover:data-[light]:bg-gray-300"
+              className="animation start-home absolute top-0 h-full w-[100px] rounded-md transition-all duration-500 group-hover:data-[light=false]:bg-gray-700 group-hover:data-[light=true]:bg-gray-300"
             ></div>
           </div>
         </nav>
