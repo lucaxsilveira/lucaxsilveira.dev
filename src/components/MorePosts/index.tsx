@@ -15,7 +15,11 @@ interface IMorePosts {
 
 const MorePosts: React.FC<IMorePosts> = async ({ lang }) => {
   const headersList = headers();
-  const pathname = headersList.get('x-pathname')?.replace('/posts/', '');
+  let pathname = headersList
+    .get('x-pathname')
+    ?.replace('/posts/', '')
+    ?.replace(lang, '')
+    ?.replace('/', '');
 
   const dict = getDictionary(lang);
 
