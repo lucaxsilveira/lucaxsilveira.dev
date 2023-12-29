@@ -52,15 +52,17 @@ const MorePosts: React.FC<IMorePosts> = async ({ lang }) => {
 
   return (
     <div className="more-posts flex w-full flex-col items-center justify-center bg-gray-100 py-8">
-      <div className="max-w-[680px] p-4 py-8 md:min-w-[680px] md:p-0">
+      <div className="min-w-full max-w-[680px] px-4 md:min-w-[680px] md:p-0">
         <p className="text-muted mb-4 text-sm">{dict.postPage.more}</p>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {posts.map((post) => (
             <a href={`/posts/${post.slug.current}`} key={post.slug.current}>
               <div className="post-bullet flex w-full flex-col">
-                <figure className="h-[200px] w-full">
+                <figure className="h-[250px] w-full md:h-[200px]">
                   <Image
-                    className={'h-[200px] w-full object-cover object-center'}
+                    className={
+                      'h-[250px] w-full object-cover object-center md:h-[200px]'
+                    }
                     value={post.mainImage}
                     isInline={false}
                   />

@@ -1,5 +1,6 @@
 import { Viewport } from 'next';
 import { Rubik } from 'next/font/google';
+
 import Script from 'next/script';
 
 const rubik = Rubik({ subsets: ['latin'] });
