@@ -1,6 +1,5 @@
 import { toPlainText } from '@portabletext/react';
 import { format, formatDistance, intervalToDuration, parseISO } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
 
 import { PortableTextBlock } from 'sanity';
 import { getDictionary } from './dictionaries';
@@ -31,7 +30,7 @@ export const formatDateTime = (
 
   return formatDistance(parseISO(publishedAt), new Date(), {
     addSuffix: true,
-    locale: ptBR,
+    locale: dateLocales[lang],
   });
 };
 

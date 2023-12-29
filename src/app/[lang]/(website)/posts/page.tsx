@@ -53,7 +53,7 @@ const Posts: React.FC<PostsProps> = async ({ params: { lang } }) => {
                 </span>
                 <span className="ml-2">{post.readingTime}</span>
               </span>
-              <div className="tags mt-4 flex items-center gap-2">
+              <div className="tags mt-4 flex flex-wrap items-center gap-2">
                 {post.categories?.map((category) => (
                   <Tag size="sm" color="secondary" key={category.title}>
                     {category.title}
