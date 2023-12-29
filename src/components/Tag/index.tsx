@@ -6,8 +6,8 @@ import { variants } from './variants';
 
 type ButtonProps = ComponentProps<'span'> & VariantProps<typeof variants> & {};
 
-const Tag = ({ size, className, children }: ButtonProps) => {
-  const { base } = variants({ size, className });
+const Tag = ({ size, color, className, children }: ButtonProps) => {
+  const { base } = variants({ size, color, className });
 
   return <span className={base()}>{children}</span>;
 };

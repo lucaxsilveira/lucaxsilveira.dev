@@ -28,7 +28,7 @@ const Posts: React.FC<PostsProps> = async ({ params: { lang } }) => {
         <p dangerouslySetInnerHTML={{ __html: dict.posts.description }}></p>
       </div>
 
-      <div className="mt-12 grid grid-cols-2 gap-12">
+      <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2">
         {posts.map((post) => (
           <Link
             href={`/${lang}/posts/${post.slug.current}`}
@@ -55,7 +55,7 @@ const Posts: React.FC<PostsProps> = async ({ params: { lang } }) => {
               </span>
               <div className="tags mt-4 flex items-center gap-2">
                 {post.categories?.map((category) => (
-                  <Tag size="sm" key={category.title}>
+                  <Tag size="sm" color="secondary" key={category.title}>
                     {category.title}
                   </Tag>
                 ))}
