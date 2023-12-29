@@ -9,6 +9,7 @@ import { LayoutProps } from '@/types/next';
 
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
+import '@/styles/toast.css';
 
 export const viewport: Viewport = {
   themeColor: '#0e0c12',

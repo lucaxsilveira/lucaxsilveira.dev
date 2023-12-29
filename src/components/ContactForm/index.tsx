@@ -3,14 +3,19 @@
 import React, { useMemo } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import * as Toast from '@radix-ui/react-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { CheckCircle, X } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import Button from '@/components/Button';
 import { Input } from '@/components/Input';
+
 import { sendEmail } from '@/services/send-email';
+
 import { getDictionary } from '@/utils/dictionaries';
 import { LocaleNames } from '@/utils/language';
+
 import { EmailSchemaValidation, TEmail } from '@/validations/email.schema';
 
 interface IContactForm {
@@ -35,7 +40,7 @@ const ContactForm: React.FC<IContactForm> = ({ lang }) => {
       setTimeout(() => {
         resetRequest();
         resetForm();
-      }, 1500);
+      }, 2500);
     },
   });
 
@@ -114,6 +119,20 @@ const ContactForm: React.FC<IContactForm> = ({ lang }) => {
         </Button>
       </form>
       {error && <p className="text-pink-400">{error.message}</p>}
+
+      <Toast.Root
+        className="ToastRoot shadow-xs relative flex flex-col gap-3 rounded-lg border border-gray-900 bg-gray-800 p-4 tracking-wide text-gray-300 shadow-black"
+        open={isSuccess}
+      >
+        <Toast.Title className="flex items-center text-sm">
+          <CheckCircle size={18} className="mr-3 text-green-500" />
+          {dict.contact.form.button.success}
+        </Toast.Title>
+        <Toast.Close className="absolute right-2 top-2">
+          <X size={14} />
+        </Toast.Close>
+      </Toast.Root>
+      <Toast.Viewport className="fixed bottom-[0] right-[calc(50%-152px)] z-[2147483647] m-0 flex w-[390px] max-w-full list-none flex-col gap-2 p-7 outline-none" />
     </div>
   );
 };

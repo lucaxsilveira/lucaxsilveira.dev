@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { Provider as ToastProvider } from '@radix-ui/react-toast';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const client = new QueryClient({
@@ -9,7 +10,11 @@ const client = new QueryClient({
 });
 
 const Providers = ({ children }: React.PropsWithChildren) => {
-  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
+  return (
+    <ToastProvider>
+      <QueryClientProvider client={client}>{children}</QueryClientProvider>
+    </ToastProvider>
+  );
 };
 
 export default Providers;
