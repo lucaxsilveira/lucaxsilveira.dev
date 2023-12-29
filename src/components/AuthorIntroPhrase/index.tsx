@@ -8,7 +8,12 @@ const AuthorIntroPhrase: React.FC = () => {
     <>
       <h2 className="mt-3 flex items-center gap-2 text-xl tracking-wide text-gray-200">
         Front-End Enthusiast
-        <LottieIcon animate={true} icon="heart" autoplay={true} />
+        <LottieIcon
+          data-testid="lottie"
+          animate={true}
+          icon="heart"
+          autoplay={true}
+        />
       </h2>
     </>
   );

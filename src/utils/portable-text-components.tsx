@@ -52,6 +52,7 @@ export const portableTextComponents: PortableTextComponents = {
         <a
           href={value?.href}
           target={target}
+          className="text-blue-700"
           rel={target === '_blank' ? 'noindex nofollow' : ''}
         >
           {children}

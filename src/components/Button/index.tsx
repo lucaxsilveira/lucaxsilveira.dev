@@ -29,8 +29,8 @@ const Button: React.FC<ButtonProps> = ({
       data-success={success}
       className={base()}
     >
-      {success && <CheckCircle className={icon()} />}
-      {loading && <Loader2 className={loader()} />}
+      {success && <CheckCircle data-testid="success" className={icon()} />}
+      {loading && <Loader2 data-testid="loader" className={loader()} />}
 
       {children}
     </button>

@@ -20,12 +20,13 @@ const CopyButton = ({ code }: ICopyButton) => {
   return (
     <div className="copy flex cursor-pointer rounded-lg">
       <button
+        data-testid="copy-button"
         onClick={handleCopy}
         className={`${
           isCopied ? 'text-green-700' : 'text-gray-700'
         } transition-colors`}
       >
-        <ClipboardCopy height={18} />
+        <ClipboardCopy data-testid="copy-icon" height={18} />
       </button>
     </div>
   );
