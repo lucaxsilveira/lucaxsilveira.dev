@@ -43,7 +43,7 @@ const PostPage = async ({ params: { slug, lang } }: IParams) => {
           <div className="font-serif">
             <Post.Content post={post} />
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {post.categories?.map((category) => (
               <Tag key={category.title}>{category.title}</Tag>
             ))}
