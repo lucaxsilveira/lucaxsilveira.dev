@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Lora } from 'next/font/google';
 
 import MorePosts from '@/components/MorePosts';
 import Post from '@/components/Post';
@@ -22,6 +23,11 @@ interface IParams {
 
 export const dynamic = 'force-dynamic';
 
+const lora = Lora({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+});
+
 const PostPage = async ({ params: { slug, lang } }: IParams) => {
   const post: IPost = await getPost({ slug, lang });
 
@@ -40,7 +46,7 @@ const PostPage = async ({ params: { slug, lang } }: IParams) => {
             />
             <Post.Share />
           </div>
-          <div className="font-serif">
+          <div className={`${lora.className} tracking-wide`}>
             <Post.Content post={post} />
           </div>
           <div className="flex flex-wrap gap-2">
