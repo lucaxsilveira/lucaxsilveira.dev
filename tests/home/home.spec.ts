@@ -28,8 +28,8 @@ test('has social link buttons', async ({ page }) => {
 test('has experience section', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
 
-  expect(page.getByText('Globo')).toBeVisible();
-  expect(page.getByText('SolucioneRH')).toBeVisible();
-  expect(page.getByText('Freelancer')).toBeVisible();
-  expect(page.getByText('Bela Pagamentos')).toBeVisible();
+  await expect(page.getByText('Globo')).toBeVisible();
+  await expect(page.getByText('SolucioneRH')).toBeVisible();
+  await expect(page.getByText('Freelancer')).toBeVisible();
+  await expect(page.getByText('Bela Pagamentos')).toBeVisible();
 });
