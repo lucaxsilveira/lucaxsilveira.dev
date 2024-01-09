@@ -112,6 +112,9 @@ dependencies:
     version: registry.npmjs.org/zod@3.22.4
 
 devDependencies:
+  '@playwright/test':
+    specifier: ^1.40.1
+    version: registry.npmjs.org/@playwright/test@1.40.1
   '@portabletext/types':
     specifier: ^2.0.8
     version: registry.npmjs.org/@portabletext/types@2.0.8
@@ -2297,6 +2300,16 @@ packages:
       open: registry.npmjs.org/open@9.1.0
       picocolors: registry.npmjs.org/picocolors@1.0.0
       tslib: registry.npmjs.org/tslib@2.6.2
+    dev: true
+
+  registry.npmjs.org/@playwright/test@1.40.1:
+    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==, tarball: https://registry.npmjs.org/@playwright/test/-/test-1.40.1.tgz}
+    name: '@playwright/test'
+    version: 1.40.1
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright: registry.npmjs.org/playwright@1.40.1
     dev: true
 
   registry.npmjs.org/@portabletext/react@3.0.11(react@18.2.0):
@@ -6567,6 +6580,16 @@ packages:
     name: fs.realpath
     version: 1.0.0
 
+  registry.npmjs.org/fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, tarball: https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   registry.npmjs.org/fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==, tarball: https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz}
     name: fsevents
@@ -9511,6 +9534,26 @@ packages:
     dependencies:
       find-up: registry.npmjs.org/find-up@5.0.0
     dev: false
+
+  registry.npmjs.org/playwright-core@1.40.1:
+    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==, tarball: https://registry.npmjs.org/playwright-core/-/playwright-core-1.40.1.tgz}
+    name: playwright-core
+    version: 1.40.1
+    engines: {node: '>=16'}
+    hasBin: true
+    dev: true
+
+  registry.npmjs.org/playwright@1.40.1:
+    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==, tarball: https://registry.npmjs.org/playwright/-/playwright-1.40.1.tgz}
+    name: playwright
+    version: 1.40.1
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright-core: registry.npmjs.org/playwright-core@1.40.1
+    optionalDependencies:
+      fsevents: registry.npmjs.org/fsevents@2.3.2
+    dev: true
 
   registry.npmjs.org/pluralize-esm@9.0.5:
     resolution: {integrity: sha512-Kb2dcpMsIutFw2hYrN0EhsAXOUJTd6FVMIxvNAkZCMQLVt9NGZqQczvGpYDxNWCZeCWLHUPxQIBudWzt1h7VVA==, tarball: https://registry.npmjs.org/pluralize-esm/-/pluralize-esm-9.0.5.tgz}
