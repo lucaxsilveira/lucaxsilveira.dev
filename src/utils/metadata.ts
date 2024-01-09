@@ -1,5 +1,6 @@
 import { toPlainText } from '@portabletext/react';
 import { isEmpty, truncate } from 'lodash';
+import { Metadata } from 'next';
 import { PortableTextBlock } from 'sanity';
 
 import { IImage } from '@/types/image';
@@ -16,7 +17,7 @@ export const generatePageMetadata = ({
   image,
   description,
   title,
-}: IMetadataProps) => {
+}: IMetadataProps): Metadata => {
   let images: any = [];
   let imageUrl: string | undefined;
   let descriptionText = '';
@@ -42,20 +43,27 @@ export const generatePageMetadata = ({
   return {
     title,
     description: descriptionText,
+    keywords: [
+      'dev',
+      'developer',
+      'front-end',
+      'web',
+      'react',
+      'javascript',
+      'nextjs',
+      'next.js',
+      'next',
+      'tailwindcss',
+    ],
     openGraph: {
       title,
       description: descriptionText,
-      images: [...images],
-    },
-    og: {
-      title,
-      description: descriptionText,
-      image: imageUrl,
+      images,
     },
     twitter: {
       title,
       description: descriptionText,
-      image: imageUrl,
+      images,
     },
   };
 };
