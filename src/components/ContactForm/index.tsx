@@ -11,6 +11,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@/components/Button';
 import { Input } from '@/components/Input';
 
+import { initZodTranslations } from '@/dictionaries/zod';
 import { sendEmail } from '@/services/send-email';
 
 import { getDictionary } from '@/utils/dictionaries';
@@ -24,6 +25,8 @@ interface IContactForm {
 
 const ContactForm: React.FC<IContactForm> = ({ lang }) => {
   const queryClient = useQueryClient();
+
+  initZodTranslations(lang);
 
   const {
     error,

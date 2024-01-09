@@ -32,6 +32,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^10.16.5",
     "groq": "^3.20.0",
+    "i18next": "^23.7.16",
     "lodash": "^4.17.21",
     "lucide-react": "^0.292.0",
     "negotiator": "^0.6.3",
@@ -48,7 +49,8 @@
     "styled-components": "6",
     "tailwind-merge": "^2.1.0",
     "tailwind-variants": "^0.1.18",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zod-i18n-map": "^2.25.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",

@@ -59,6 +59,9 @@ dependencies:
   groq:
     specifier: ^3.20.0
     version: registry.npmjs.org/groq@3.20.0
+  i18next:
+    specifier: ^23.7.16
+    version: registry.npmjs.org/i18next@23.7.16
   lodash:
     specifier: ^4.17.21
     version: registry.npmjs.org/lodash@4.17.21
@@ -110,6 +113,9 @@ dependencies:
   zod:
     specifier: ^3.22.4
     version: registry.npmjs.org/zod@3.22.4
+  zod-i18n-map:
+    specifier: ^2.25.0
+    version: registry.npmjs.org/zod-i18n-map@2.25.0(i18next@23.7.16)(zod@3.22.4)
 
 devDependencies:
   '@playwright/test':
@@ -625,6 +631,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: registry.npmjs.org/regenerator-runtime@0.14.0
+    dev: false
 
   registry.npmjs.org/@babel/runtime@7.23.6:
     resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==, tarball: https://registry.npmjs.org/@babel/runtime/-/runtime-7.23.6.tgz}
@@ -965,7 +972,7 @@ packages:
     version: 11.11.0
     dependencies:
       '@babel/helper-module-imports': registry.npmjs.org/@babel/helper-module-imports@7.22.15
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
       '@emotion/hash': registry.npmjs.org/@emotion/hash@0.9.1
       '@emotion/memoize': registry.npmjs.org/@emotion/memoize@0.8.1
       '@emotion/serialize': registry.npmjs.org/@emotion/serialize@1.1.2
@@ -4433,7 +4440,7 @@ packages:
     version: 3.1.0
     engines: {node: '>=10', npm: '>=6'}
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
       cosmiconfig: registry.npmjs.org/cosmiconfig@7.1.0
       resolve: registry.npmjs.org/resolve@1.22.8
     dev: false
@@ -6049,7 +6056,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
       aria-query: registry.npmjs.org/aria-query@5.3.0
       array-includes: registry.npmjs.org/array-includes@3.1.7
       array.prototype.flatmap: registry.npmjs.org/array.prototype.flatmap@1.3.2
@@ -7043,7 +7050,7 @@ packages:
     name: history
     version: 5.3.0
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
     dev: false
 
   registry.npmjs.org/hoist-non-react-statics@3.3.2:
@@ -7139,6 +7146,14 @@ packages:
     resolution: {integrity: sha512-4+p3fCRF21oUqxhK0yZ6yaSP/H5/wZumc7q1fH99RkW7Q13aAxDeP78BKjoR+6y+kaHqKF/JWuQhsNuuI2NKtA==, tarball: https://registry.npmjs.org/humanize-list/-/humanize-list-1.0.1.tgz}
     name: humanize-list
     version: 1.0.1
+    dev: false
+
+  registry.npmjs.org/i18next@23.7.16:
+    resolution: {integrity: sha512-SrqFkMn9W6Wb43ZJ9qrO6U2U4S80RsFMA7VYFSqp7oc7RllQOYDCdRfsse6A7Cq/V8MnpxKvJCYgM8++27n4Fw==, tarball: https://registry.npmjs.org/i18next/-/i18next-23.7.16.tgz}
+    name: i18next
+    version: 23.7.16
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
     dev: false
 
   registry.npmjs.org/iconv-lite@0.6.3:
@@ -9568,7 +9583,7 @@ packages:
     version: 4.2.2
     engines: {node: '>=10'}
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
     dev: false
 
   registry.npmjs.org/postcss-import@15.1.0(postcss@8.4.31):
@@ -9963,7 +9978,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.2
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.6
       '@types/react': registry.npmjs.org/@types/react@18.2.37
       focus-lock: registry.npmjs.org/focus-lock@1.0.0
       prop-types: registry.npmjs.org/prop-types@15.8.1
@@ -12261,6 +12276,19 @@ packages:
       archiver-utils: registry.npmjs.org/archiver-utils@3.0.4
       compress-commons: registry.npmjs.org/compress-commons@4.1.2
       readable-stream: registry.npmjs.org/readable-stream@3.6.2
+    dev: false
+
+  registry.npmjs.org/zod-i18n-map@2.25.0(i18next@23.7.16)(zod@3.22.4):
+    resolution: {integrity: sha512-N20O0onhseYQF2TM9KeLtPeBhaWw77qAV2FIgtF9NBlA1G7wlou86OBTsYL6EtounY6kRg0Ihy70HI2m6sYZHw==, tarball: https://registry.npmjs.org/zod-i18n-map/-/zod-i18n-map-2.25.0.tgz}
+    id: registry.npmjs.org/zod-i18n-map/2.25.0
+    name: zod-i18n-map
+    version: 2.25.0
+    peerDependencies:
+      i18next: '>=21.3.0'
+      zod: '>=3.17.0'
+    dependencies:
+      i18next: registry.npmjs.org/i18next@23.7.16
+      zod: registry.npmjs.org/zod@3.22.4
     dev: false
 
   registry.npmjs.org/zod@3.22.4:
