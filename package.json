@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css,scss}\"",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "pnpm exec playwright test",
+    "test:e2e:ui": "pnpm exec playwright test --ui",
+    "test:e2e:chrome": "pnpm exec playwright test --project=chromium"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -48,6 +51,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.1",
     "@portabletext/types": "^2.0.8",
     "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^14.1.2",

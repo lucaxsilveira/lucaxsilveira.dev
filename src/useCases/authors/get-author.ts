@@ -14,7 +14,7 @@ const getAuthor = async (
   { slug, lang, params }: GetPostParams = {} as GetPostParams,
 ): Promise<IAuthor> => {
   try {
-    const [author] = await sanityFetch<IAuthor[]>({
+    const response = await sanityFetch<IAuthor[]>({
       query: groq`*[language == '${lang}' && slug.current == '${slug}']{
       name,
       language,
@@ -26,6 +26,8 @@ const getAuthor = async (
       tags: ['author'],
       ...params,
     });
+
+    const [author] = response;
 
     return author;
   } catch (error: any) {
