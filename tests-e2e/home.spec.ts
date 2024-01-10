@@ -34,4 +34,18 @@ test.describe('Home', () => {
     await expect(page.getByText('Freelancer')).toBeVisible();
     await expect(page.getByText('Bela Pagamentos')).toBeVisible();
   });
+
+  test.skip('should be able to trigger shortcut actions with keyboard', async ({
+    page,
+  }) => {
+    await page.goto('/', { waitUntil: 'networkidle' });
+
+    // on Windows and Linux
+    await page.keyboard.press('Control+K');
+    await page.waitForTimeout(1000);
+
+    await expect(
+      page.getByPlaceholder('Type a command or search by name...'),
+    ).toBeVisible();
+  });
 });

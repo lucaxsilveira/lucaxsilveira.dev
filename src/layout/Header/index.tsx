@@ -55,6 +55,13 @@ const Header: React.FC<IHeader> = ({ light = false, isMac = false, lang }) => {
       key: 'k',
       metaKey: true,
     });
+
+    const simulatedEventWindows = new KeyboardEvent('keydown', {
+      key: 'k',
+      ctrlKey: true,
+    });
+
+    window.dispatchEvent(simulatedEventWindows);
     window.dispatchEvent(simulatedEvent);
   }, []);
 

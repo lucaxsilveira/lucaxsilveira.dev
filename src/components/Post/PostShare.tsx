@@ -26,7 +26,7 @@ const PostShare = () => {
         onClick={handleShare}
         className={`${
           isCopied ? 'text-green-700' : 'text-gray-700'
-        } transition-colors	`}
+        } post__share__button	transition-colors`}
       >
         <Share height={20} />
       </button>
