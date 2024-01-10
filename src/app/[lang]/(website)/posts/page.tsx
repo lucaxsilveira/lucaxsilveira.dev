@@ -33,7 +33,7 @@ const Posts: React.FC<PostsProps> = async ({ params: { lang } }) => {
           <Link
             href={`/${lang}/posts/${post.slug.current}`}
             key={`${post.slug.current}`}
-            className="block"
+            className="post block"
           >
             <div className="flex flex-col justify-center">
               <div className="mb-4 overflow-hidden rounded-lg">
@@ -41,9 +41,9 @@ const Posts: React.FC<PostsProps> = async ({ params: { lang } }) => {
               </div>
               <div className="flex flex-row gap-16">
                 <div>
-                  <p className=" line-clamp-2 text-lg font-bold leading-5 text-white lg:line-clamp-none">
+                  <h4 className=" line-clamp-2 text-lg font-bold leading-5 text-white lg:line-clamp-none">
                     {post.title}
-                  </p>
+                  </h4>
                   <p className="mt-2 text-sm font-light">{post.description}</p>
                 </div>
               </div>
